@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover SEO tools, AI platforms, website optimization resources, and digital marketing solutions with Highlink LLC.">
+  <title>AI & SEO Tools | Highlink LLC</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1220;
+      color: #e8eef7;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #101a2d;
+      border-bottom: 1px solid #263653;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: #c8d3e3;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #5da9ff;
+    }
+
+    .hero {
+      padding: 90px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #17264a, #0b1220);
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: auto;
+      color: #b8c5d8;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+      color: #fff;
+      font-size: 31px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      max-width: 800px;
+      margin: auto;
+      color: #b8c5d8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #111d32;
+      border: 1px solid #263653;
+      border-radius: 14px;
+      padding: 30px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #3f8ee8;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: #fff;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #b8c5d8;
+      margin-bottom: 18px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-bottom: 24px;
+      color: #cbd6e5;
+    }
+
+    .card li {
+      margin-bottom: 7px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #287fd6;
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 19px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #3995ed;
+    }
+
+    .info {
+      margin-top: 60px;
+      padding: 32px;
+      background: #101a2d;
+      border: 1px solid #263653;
+      border-left: 4px solid #3f8ee8;
+      border-radius: 10px;
+    }
+
+    .info h2 {
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .info p {
+      color: #b8c5d8;
+      margin-bottom: 12px;
+    }
+
+    .cta {
+      margin-top: 65px;
+      padding: 50px 25px;
+      text-align: center;
+      background: linear-gradient(135deg, #132846, #101a2d);
+      border-radius: 14px;
+    }
+
+    .cta h2 {
+      color: #fff;
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #b8c5d8;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      background: #080e19;
+      border-top: 1px solid #263653;
+      padding: 28px 7%;
+      text-align: center;
+      color: #8493a8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 16px 5%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 65px 5%;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 50px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Highlink LLC</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="business-registration.html">Business Registration</a>
+    <a href="website-hosting.html">Website & Hosting</a>
+    <a href="ai-seo.html">AI & SEO</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>AI & SEO Solutions</h1>
+  <p>
+    Discover search engine optimization tools, artificial intelligence platforms,
+    and digital marketing resources to improve your online presence and support business growth.
+  </p>
+</section>
+
+<main class="container">
+
+  <section class="section-heading">
+    <h2>Tools for Smarter Digital Growth</h2>
+    <p>
+      From improving search visibility to creating content and managing customer
+      communications, the right digital tools can help businesses work more efficiently.
+    </p>
+  </section>
+
+  <section class="cards">
+
+    <article class="card">
+      <div class="icon">🔎</div>
+      <h3>SEO & Website Optimization</h3>
+      <p>
+        Learn about SEO tools that help website owners research keywords,
+        understand search performance, and identify optimization opportunities.
+      </p>
+      <ul>
+        <li>Keyword research</li>
+        <li>Website performance analysis</li>
+        <li>Competitor research</li>
+        <li>Search visibility monitoring</li>
+        <li>SEO reporting resources</li>
+      </ul>
+      <a href="#" class="button">Explore SEO Tools</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🤖</div>
+      <h3>AI Productivity Tools</h3>
+      <p>
+        Explore AI-powered platforms that can assist with research, writing,
+        idea generation, and everyday digital tasks.
+      </p>
+      <ul>
+        <li>AI-assisted content creation</li>
+        <li>Research and brainstorming</li>
+        <li>Writing assistance</li>
+        <li>Productivity workflows</li>
+        <li>Creative digital tools</li>
+      </ul>
+      <a href="#" class="button">Explore AI Tools</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">📈</div>
+      <h3>Content & Digital Marketing</h3>
+      <p>
+        Discover resources for planning content, improving your website's reach,
+        and building a consistent online marketing strategy.
+      </p>
+      <ul>
+        <li>Content planning</li>
+        <li>Blog and website resources</li>
+        <li>Audience engagement</li>
+        <li>Marketing campaign support</li>
+        <li>Content performance analysis</li>
+      </ul>
+      <a href="#" class="button">Explore Marketing Tools</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">💬</div>
+      <h3>Chatbots & Automation</h3>
+      <p>
+        Learn how messaging tools and automation platforms can help businesses
+        manage conversations and streamline customer interactions.
+      </p>
+      <ul>
+        <li>Automated messaging workflows</li>
+        <li>Customer communication tools</li>
+        <li>Social media engagement</li>
+        <li>Lead management resources</li>
+        <li>Marketing workflow automation</li>
+      </ul>
+      <a href="#" class="button">Explore Automation Tools</a>
+    </article>
+
+  </section>
+
+  <section class="info">
+    <h2>Choosing the Right AI & SEO Tools</h2>
+    <p>
+      The best tools depend on your goals, budget, experience, and business needs.
+      Compare features, pricing, limitations, and available support before choosing a platform.
+    </p>
+    <p>
+      SEO results take time and depend on many factors. AI-generated content should
+      be reviewed for accuracy, usefulness, and originality before publication.
+    </p>
+  </section>
+
+  <section class="cta">
+    <h2>Make Your Digital Strategy Work Smarter</h2>
+    <p>
+      Explore digital resources designed to support your website, content, and business growth.
+    </p>
+    <a href="index.html#services" class="button">View All Services</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Highlink LLC. All rights reserved.
+</footer>
+
+</body>
+</html>
