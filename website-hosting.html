@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore website builders, web hosting, domain registration, and cloud hosting resources with Highlink LLC.">
+  <title>Website & Hosting Services | Highlink LLC</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1220;
+      color: #e8eef7;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #101a2d;
+      border-bottom: 1px solid #263653;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #c8d3e3;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #5da9ff;
+    }
+
+    .hero {
+      padding: 90px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #132846, #0b1220);
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: 44px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 790px;
+      margin: auto;
+      color: #b8c5d8;
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 7%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading h2 {
+      color: #fff;
+      font-size: 31px;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: #b8c5d8;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #111d32;
+      border: 1px solid #263653;
+      border-radius: 14px;
+      padding: 30px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #3f8ee8;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: #fff;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #b8c5d8;
+      margin-bottom: 18px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-bottom: 24px;
+      color: #cbd6e5;
+    }
+
+    .card li {
+      margin-bottom: 7px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #287fd6;
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 19px;
+      border-radius: 7px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #3995ed;
+    }
+
+    .benefits {
+      margin-top: 65px;
+      background: #101a2d;
+      border: 1px solid #263653;
+      border-radius: 14px;
+      padding: 35px;
+    }
+
+    .benefits h2 {
+      color: #fff;
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .benefits p {
+      color: #b8c5d8;
+      margin-bottom: 15px;
+    }
+
+    .cta {
+      margin-top: 65px;
+      padding: 50px 25px;
+      text-align: center;
+      background: linear-gradient(135deg, #132846, #101a2d);
+      border-radius: 14px;
+    }
+
+    .cta h2 {
+      color: #fff;
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #b8c5d8;
+      margin-bottom: 24px;
+    }
+
+    footer {
+      background: #080e19;
+      border-top: 1px solid #263653;
+      padding: 28px 7%;
+      text-align: center;
+      color: #8493a8;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 16px 5%;
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 65px 5%;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 50px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">Highlink LLC</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="business-registration.html">Business Registration</a>
+    <a href="website-hosting.html">Website & Hosting</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Website & Hosting Services</h1>
+  <p>
+    Discover website creation tools, reliable hosting solutions, domain services,
+    and cloud infrastructure resources to help establish and grow your online presence.
+  </p>
+</section>
+
+<main class="container">
+
+  <section class="section-heading">
+    <h2>Build and Grow Your Online Presence</h2>
+    <p>
+      Whether you are launching a new business website, creating an online store,
+      or upgrading your hosting, the right tools can help you build a strong digital foundation.
+    </p>
+  </section>
+
+  <section class="cards">
+
+    <article class="card">
+      <div class="icon">🌐</div>
+      <h3>Website Builders</h3>
+      <p>
+        Create a professional website using tools designed for different skill levels
+        and business needs.
+      </p>
+      <ul>
+        <li>Website creation platforms</li>
+        <li>Customizable website designs</li>
+        <li>Business and portfolio websites</li>
+        <li>E-commerce website tools</li>
+        <li>Mobile-friendly layouts</li>
+      </ul>
+      <a href="#" class="button">Explore Website Builders</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🖥️</div>
+      <h3>Web Hosting</h3>
+      <p>
+        Learn about hosting services that make your website accessible online
+        and support your site's performance.
+      </p>
+      <ul>
+        <li>Shared hosting</li>
+        <li>WordPress hosting</li>
+        <li>Business website hosting</li>
+        <li>Website performance resources</li>
+        <li>Hosting support and management</li>
+      </ul>
+      <a href="#" class="button">Explore Web Hosting</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">🔗</div>
+      <h3>Domain Services</h3>
+      <p>
+        Find resources for choosing, registering, and managing a domain name
+        for your business or website.
+      </p>
+      <ul>
+        <li>Domain name registration</li>
+        <li>Domain management</li>
+        <li>DNS configuration resources</li>
+        <li>Business domain names</li>
+        <li>Website domain connections</li>
+      </ul>
+      <a href="#" class="button">Explore Domain Services</a>
+    </article>
+
+    <article class="card">
+      <div class="icon">☁️</div>
+      <h3>Cloud & VPS Hosting</h3>
+      <p>
+        Explore hosting options for websites and applications that may need
+        more control, flexibility, or computing resources.
+      </p>
+      <ul>
+        <li>Virtual private servers</li>
+        <li>Cloud server solutions</li>
+        <li>Scalable hosting resources</li>
+        <li>Server configuration options</li>
+        <li>Infrastructure for growing projects</li>
+      </ul>
+      <a href="#" class="button">Explore Cloud Hosting</a>
+    </article>
+
+  </section>
+
+  <section class="benefits">
+    <h2>How to Choose the Right Solution</h2>
+    <p>
+      <strong>For beginners:</strong> A website builder may offer a simpler way
+      to create a website without managing technical infrastructure.
+    </p>
+    <p>
+      <strong>For business websites:</strong> Compare hosting reliability,
+      customer support, security features, storage, and renewal prices.
+    </p>
+    <p>
+      <strong>For growing projects:</strong> VPS or cloud hosting may provide
+      additional control and flexibility, depending on your technical needs.
+    </p>
+    <p>
+      Always review the provider's current pricing, renewal terms, and service
+      limitations before making a purchase.
+    </p>
+  </section>
+
+  <section class="cta">
+    <h2>Find the Right Tools for Your Business</h2>
+    <p>
+      Explore website and hosting resources to help bring your business online.
+    </p>
+    <a href="index.html#services" class="button">View All Services</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Highlink LLC. All rights reserved.
+</footer>
+
+</body>
+</html>
