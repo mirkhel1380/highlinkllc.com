@@ -511,11 +511,13 @@ footer a:hover {
 }
 
 .footer-grid {
-  max-width: 1300px;
-  margin: auto;
+  max-width: 1180px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.4fr repeat(5, 1fr);
-  gap: 38px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 26px;
+  align-items: start;
+  text-align: left;
 }
 
 .footer-brand p {
@@ -550,6 +552,21 @@ footer a:hover {
 .footer-column a:hover {
   color: #60a5fa;
   transform: translateX(3px);
+}
+    .footer-brand,
+.footer-column {
+  text-align: left;
+}
+
+.footer-column h3 {
+  text-align: left;
+  margin-left: 0;
+}
+
+.footer-column a {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .footer-bottom {
