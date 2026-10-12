@@ -503,6 +503,80 @@ footer a {
 footer a:hover {
   color: #7dd3fc;
 }
+    .mega-footer {
+  background: #0b0f17;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 60px 24px 25px;
+  margin-top: 70px;
+}
+
+.footer-grid {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.4fr repeat(5, 1fr);
+  gap: 38px;
+}
+
+.footer-brand p {
+  color: #9fb0c6;
+  max-width: 300px;
+  margin: 18px 0 24px;
+}
+
+.footer-contact-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  color: #fff;
+  padding: 11px 18px;
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-column a {
+  display: block;
+  color: #aebed2;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #60a5fa;
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  max-width: 1300px;
+  margin: 45px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+  color: #7f8fa3;
+  font-size: 14px;
+}
+
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mega-footer {
+    padding-top: 45px;
+  }
+}
 </style>
 </head>
 
@@ -837,29 +911,83 @@ footer a:hover {
 </section>
 
 
-<footer>
+<footer class="mega-footer">
 
-    <div class="footer-logo">
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
         High<span>link</span> LLC
+      </div>
+
+      <p>
+        Business registration, website, AI, SEO, hosting,
+        and online security resources for modern businesses.
+      </p>
+
+      <a href="contact.html" class="footer-contact-btn">Contact Us</a>
     </div>
 
-    <p>
-        Business Registration &amp; Digital Marketing
-    </p>
 
-    <p>
-        <a href="index.html">Home</a> |
-        <a href="about.html">About</a> |
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a> |
-        <a href="privacy-policy.html">Privacy Policy</a> |
-        <a href="affiliate-disclosure.html">Affiliate Disclosure</a> |
-        <a href="terms.html">Terms &amp; Conditions</a>
-    </p>
+    <div class="footer-column">
+      <h3>Business Registration</h3>
 
-    <p>
-        © 2026 Highlink LLC. All rights reserved.
-    </p>
+      <a href="business-registration.html">Business Registration</a>
+      <a href="usa-business-registration.html">USA LLC Registration</a>
+      <a href="uk-business-registration.html">UK LTD Registration</a>
+    </div>
+
+
+    <div class="footer-column">
+      <h3>Website & Hosting</h3>
+
+      <a href="website-hosting.html">Website & Hosting</a>
+      <a href="website-builders.html">Website Builders</a>
+      <a href="web-hosting.html">Web Hosting</a>
+      <a href="domain-services.html">Domain Services</a>
+      <a href="cloud-hosting.html">Cloud Hosting</a>
+    </div>
+
+
+    <div class="footer-column">
+      <h3>AI & SEO</h3>
+
+      <a href="ai-seo.html">AI & SEO</a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="seo-tools.html">SEO Tools</a>
+      <a href="chatbots-automation.html">Chatbots & Automation</a>
+      <a href="ai-productivity.html">AI Productivity</a>
+    </div>
+
+
+    <div class="footer-column">
+      <h3>VPN & Security</h3>
+
+      <a href="vpn-security.html">VPN & Security</a>
+      <a href="vpn-services.html">VPN Services</a>
+      <a href="protection-tools.html">Protection Tools</a>
+      <a href="device-tools.html">Device Tools</a>
+      <a href="online-safety.html">Online Safety</a>
+    </div>
+
+
+    <div class="footer-column">
+      <h3>Company</h3>
+
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+    <p>© 2026 Highlink LLC. All rights reserved.</p>
+  </div>
 
 </footer>
 
