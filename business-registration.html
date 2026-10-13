@@ -1,495 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about USA business registration, LLC formation, registered agents, and business setup options with Highlink LLC.">
+  <title>USA Business Registration | Highlink LLC</title>
 
-<title>Business Registration | Highlink LLC</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<meta name="description" content="Explore business registration and company formation resources for entrepreneurs looking to establish a business in the USA or UK.">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1220;
+      color: #e8eef7;
+      line-height: 1.7;
+    }
 
-<style>
-    .back-button {
-  display: inline-block;
-  margin: 20px 0 10px 20px;
-  padding: 10px 18px;
-  background: #1f6feb;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: 0.2s ease;
-}
-.back-area {
-  background: #0b1220;
-  padding: 14px 20px;
-}    
+    header {
+      background: #101a2d;
+      border-bottom: 1px solid #263653;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.back-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f9fc;
-    color: #172033;
-    line-height: 1.6;
-}
-
-header {
-    background: #0b1220;
-    padding: 20px 7%;
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    color: white;
-    font-size: 27px;
-    font-weight: 700;
-}
-
-.logo span {
-    color: #3b82f6;
-}
-
-nav a {
-    color: #dbe4f0;
-    text-decoration: none;
-    margin-left: 28px;
-    font-size: 15px;
-}
-
-nav a:hover {
-    color: #60a5fa;
-}
-
-.hero {
-    background: linear-gradient(135deg, #07101f, #172554);
-    color: white;
-    padding: 90px 7%;
-}
-
-.hero-content {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.hero h1 {
-    max-width: 800px;
-    font-size: 50px;
-    line-height: 1.15;
-    margin-bottom: 22px;
-}
-
-.hero p {
-    max-width: 720px;
-    color: #cbd5e1;
-    font-size: 18px;
-}
-
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 75px 7%;
-}
-
-.intro {
-    max-width: 850px;
-    margin: auto;
-    text-align: center;
-}
-
-.intro h2 {
-    font-size: 34px;
-    margin-bottom: 18px;
-}
-
-.intro p {
-    color: #64748b;
-    font-size: 17px;
-}
-
-.options {
-    margin-top: 55px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.option {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 35px;
-}
-
-.option h2 {
-    margin-bottom: 15px;
-    font-size: 26px;
-}
-
-.option p {
-    color: #64748b;
-    margin-bottom: 22px;
-}
-
-.option ul {
-    margin: 0 0 25px 20px;
-    color: #475569;
-}
-
-.option li {
-    margin-bottom: 9px;
-}
-
-.button {
-    display: inline-block;
-    background: #3b82f6;
-    color: white;
-    text-decoration: none;
-    padding: 12px 22px;
-    border-radius: 7px;
-    font-weight: 600;
-}
-
-.button:hover {
-    background: #2563eb;
-}
-
-.resources {
-    background: white;
-}
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    margin-top: 45px;
-}
-
-.resource {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 27px;
-}
-
-.resource h3 {
-    margin-bottom: 10px;
-}
-
-.resource p {
-    color: #64748b;
-    font-size: 15px;
-    margin-bottom: 18px;
-}
-
-.resource a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.note {
-    background: #eef3f9;
-    padding: 55px 7%;
-    text-align: center;
-}
-
-.note-content {
-    max-width: 800px;
-    margin: auto;
-}
-
-.note h2 {
-    margin-bottom: 12px;
-}
-
-.note p {
-    color: #64748b;
-}
-
-footer {
-    background: #070d18;
-    color: #94a3b8;
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
-}
-
-.footer-logo {
-    color: white;
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.footer-logo span {
-    color: #3b82f6;
-}
-
-@media (max-width: 800px) {
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+    }
 
     nav {
-        display: none;
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: #c8d3e3;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #5da9ff;
+    }
+
+    .back-area {
+      background: #101a2d;
+      padding: 14px 7%;
+      border-bottom: 1px solid #263653;
+    }
+
+    .back-button {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .back-button:hover {
+      color: #5da9ff;
+    }
+
+    .hero {
+      padding: 90px 7%;
+      text-align: center;
+      background: linear-gradient(135deg, #101d35, #0b1220);
     }
 
     .hero h1 {
-        font-size: 40px;
+      font-size: 46px;
+      margin-bottom: 18px;
+      color: #ffffff;
     }
 
-    .options {
-        grid-template-columns: 1fr;
+    .hero p {
+      max-width: 780px;
+      margin: auto;
+      color: #b8c5d8;
+      font-size: 18px;
     }
 
-    .resource-grid {
-        grid-template-columns: 1fr;
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 7%;
     }
-}
-</style>
+
+    .intro {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .intro h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .intro p {
+      color: #b8c5d8;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #111d32;
+      border: 1px solid #263653;
+      border-radius: 14px;
+      padding: 32px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #3f8ee8;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #b8c5d8;
+      margin-bottom: 20px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      color: #cbd6e5;
+      margin-bottom: 25px;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #287fd6;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 11px 20px;
+      border-radius: 7px;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      background: #3995ed;
+    }
+
+    .info {
+      margin-top: 60px;
+      background: #101a2d;
+      border-left: 4px solid #3f8ee8;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .info h2 {
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    .info p {
+      color: #b8c5d8;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 70px;
+      padding: 55px 25px;
+      background: linear-gradient(135deg, #132846, #0f1a2d);
+      border-radius: 16px;
+    }
+
+    .cta h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .cta p {
+      color: #b8c5d8;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      background: #080e19;
+      border-top: 1px solid #263653;
+      text-align: center;
+      padding: 28px 7%;
+      color: #8493a8;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #9bbce8;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 16px 5%;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .back-area {
+        padding: 14px 5%;
+      }
+
+      .hero {
+        padding: 65px 5%;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 55px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .intro h2 {
+        font-size: 27px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
+  <a href="index.html" class="logo">Highlink LLC</a>
 
-    <div class="navbar">
-
-        <div class="logo">
-            High<span>link</span> LLC
-        </div>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="business-registration.html">Business Registration</a>
-            <a href="index.html#services">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-    </div>
-
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="business-registration.html">Business Registration</a>
+    <a href="index.html#services">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<a href="javascript:history.back()" class="back-button">← Back</a>
-    
+<div class="back-area">
+  <a href="javascript:history.back()" class="back-button">← Back</a>
+</div>
+
 <section class="hero">
-
-    <div class="hero-content">
-
-        <h1>
-            Business Registration & Company Formation
-        </h1>
-
-        <p>
-            Explore useful resources and services for establishing
-            a business in the United States or United Kingdom.
-        </p>
-
-    </div>
-
+  <h1>USA Business Registration</h1>
+  <p>
+    Learn about LLC formation, registered agents, and essential business setup services for starting a company in the United States.
+  </p>
 </section>
 
+<main class="container">
 
-<section class="section">
+  <section class="intro">
+    <h2>Start Your Business in the USA</h2>
+    <p>
+      Setting up a business in the United States involves choosing the right business structure,
+      registering your company, and maintaining the required business information.
+      Highlink LLC provides useful information and resources to help you understand the process.
+    </p>
+  </section>
 
-    <div class="intro">
+  <section class="cards">
 
-        <h2>
-            Start Your Business With the Right Resources
-        </h2>
+    <div class="card">
+      <h3>LLC Formation</h3>
 
-        <p>
-            Choosing the right business formation service can make
-            the registration process easier. Highlink provides
-            information and resources to help entrepreneurs compare
-            available solutions.
-        </p>
+      <p>
+        Learn about forming a Limited Liability Company (LLC) in the United States
+        and compare business formation services.
+      </p>
 
+      <ul>
+        <li>LLC formation assistance</li>
+        <li>State filing support</li>
+        <li>Business formation documents</li>
+        <li>Registered agent options</li>
+        <li>Business compliance resources</li>
+      </ul>
+
+      <a href="llc-formation.html" class="button">
+        View LLC Formation Services
+      </a>
     </div>
 
+    <div class="card">
+      <h3>Registered Agent Services</h3>
 
-    <div class="options">
+      <p>
+        Compare registered agent and business compliance services
+        that can help U.S. companies receive official notices,
+        maintain a business address, and manage important state requirements.
+      </p>
 
-        <div class="option">
+      <ul>
+        <li>Official document handling</li>
+        <li>Registered agent support</li>
+        <li>State compliance assistance</li>
+        <li>Business privacy support</li>
+        <li>Company maintenance resources</li>
+      </ul>
 
-            <h2>USA Business Registration</h2>
-
-            <p>
-                Explore services and resources for forming an LLC
-                or establishing a business in the United States.
-            </p>
-
-            <ul>
-                <li>LLC formation resources</li>
-                <li>Registered agent services</li>
-                <li>Business registration support</li>
-                <li>Business compliance resources</li>
-            </ul>
-
-            <a href="usa-business-registration.html" class="button">
-                View USA Options
-            </a>
-
-        </div>
-
-
-        <div class="option">
-
-            <h2>UK Business Registration</h2>
-
-            <p>
-                Explore company formation services and resources
-                for entrepreneurs establishing a UK business.
-            </p>
-
-            <ul>
-                <li>UK LTD formation</li>
-                <li>Company registration services</li>
-                <li>Business address solutions</li>
-                <li>Company compliance resources</li>
-            </ul>
-
-            <a href="uk-business-registration.html" class="button">
-                View UK Options
-            </a>
-
-        </div>
-
+      <a href="registered-agent-services.html" class="button">
+        View Registered Agent Services
+      </a>
     </div>
 
-</section>
+    <div class="card">
+      <h3>Business Setup Resources</h3>
 
+      <p>
+        Explore useful services and resources that can help entrepreneurs establish and manage their businesses.
+      </p>
 
-<section class="resources">
+      <ul>
+        <li>Business formation services</li>
+        <li>Registered agent solutions</li>
+        <li>Business address services</li>
+        <li>Online business tools</li>
+        <li>Digital business resources</li>
+      </ul>
 
-    <div class="section">
-
-        <div class="intro">
-
-            <h2>
-                Business Formation Resources
-            </h2>
-
-            <p>
-                Compare different types of services and find
-                resources that fit your business needs.
-            </p>
-
-        </div>
-
-
-        <div class="resource-grid">
-
-            <div class="resource">
-
-                <h3>LLC Formation</h3>
-
-                <p>
-                    Resources for entrepreneurs interested in
-                    creating an LLC in the United States.
-                </p>
-
-                <a href="#">
-                    Learn More →
-                </a>
-
-            </div>
-
-
-            <div class="resource">
-
-                <h3>Registered Agents</h3>
-
-                <p>
-                    Learn about registered agent services and
-                    their role in maintaining a business.
-                </p>
-
-                <a href="#">
-                    Learn More →
-                </a>
-
-            </div>
-
-
-            <div class="resource">
-
-                <h3>UK LTD Formation</h3>
-
-                <p>
-                    Explore resources for setting up and
-                    registering a private limited company in the UK.
-                </p>
-
-                <a href="#">
-                    Learn More →
-                </a>
-
-            </div>
-
-        </div>
-
+      <a href="business-setup-resources.html" class="button">
+        View Resources
+      </a>
     </div>
 
-</section>
+    <div class="card">
+      <h3>Business Information</h3>
 
+      <p>
+        Understand the basic considerations involved in starting a U.S. business before choosing a formation service.
+      </p>
 
-<section class="note">
+      <ul>
+        <li>Business structure</li>
+        <li>State registration</li>
+        <li>Company maintenance</li>
+        <li>Business documentation</li>
+        <li>Online business operations</li>
+      </ul>
 
-    <div class="note-content">
-
-        <h2>
-            Find the Right Business Formation Service
-        </h2>
-
-        <p>
-            Highlink provides informational resources and links
-            to third-party services. Review each provider's
-            pricing, features, and terms before making a decision.
-        </p>
-
+      <a href="how-to-register-llc-usa.html" class="button">
+        Learn More
+      </a>
     </div>
 
-</section>
+  </section>
 
+  <section class="info">
+    <h2>Why Choose the Right Business Setup?</h2>
+    <p>
+      The right business structure and services can make it easier to organize your company,
+      manage official documents, and build a strong foundation for future growth.
+      Always review the requirements that apply to your specific business and state.
+    </p>
+  </section>
+
+  <section class="cta">
+    <h2>Build Your Business With Confidence</h2>
+    <p>
+      Explore business registration resources and discover services that can support your business journey.
+    </p>
+
+    <a href="business-registration.html" class="button">
+      Business Registration
+    </a>
+  </section>
+
+</main>
 
 <footer>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="privacy-policy.html">Privacy Policy</a> |
+    <a href="affiliate-disclosure.html">Affiliate Disclosure</a> |
+    <a href="terms.html">Terms &amp; Conditions</a>
+  </p>
 
-    <div class="footer-logo">
-        High<span>link</span> LLC
-    </div>
-
-    <p>
-        Business Registration &amp; Digital Marketing
-    </p>
-
-    <p>
-        <a href="index.html">Home</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="privacy-policy.html">Privacy Policy</a> |
-        <a href="affiliate-disclosure.html">Affiliate Disclosure</a> |
-        <a href="terms.html">Terms &amp; Conditions</a>
-    </p>
-
-    <p>
-        © 2026 Highlink LLC. All rights reserved.
-    </p>
-
+  <p>
+    © 2026 Highlink LLC. All rights reserved.
+  </p>
 </footer>
 
 </body>
