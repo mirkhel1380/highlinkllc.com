@@ -1,14 +1,11 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>LLC Formation Services | Highlink LLC</title>
-
-  <meta name="description" content="Compare LLC formation services for starting a U.S. business. Explore Inc Authority and LLC Attorney for company formation, registered agent support, filing assistance, and business setup resources.">
-
-  <link rel="canonical" href="https://highlinkllc.com/llc-formation.html">
+  <meta name="description" content="Compare LLC formation services and business setup resources for starting a U.S. company.">
 
   <style>
     * {
@@ -19,358 +16,273 @@
 
     body {
       font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 28%),
-        radial-gradient(circle at top right, rgba(124, 58, 237, 0.14), transparent 30%),
-        linear-gradient(180deg, #07111f 0%, #0a1628 100%);
-      color: #eaf2ff;
+      background: #08111f;
+      color: #ffffff;
       line-height: 1.7;
     }
 
-    a {
+    .back-area {
+      background: #0b1220;
+      padding: 16px 24px;
+    }
+
+    .back-button {
+      color: #ffffff;
       text-decoration: none;
-      color: inherit;
+      font-weight: 600;
     }
 
-    header {
-      background: rgba(8, 15, 28, 0.92);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .nav-wrap {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .logo span {
-      color: #60a5fa;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #cdd8e8;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: #7dd3fc;
+    .back-button:hover {
+      opacity: 0.8;
     }
 
     .hero {
-      max-width: 1000px;
-      margin: auto;
-      padding: 75px 24px 45px;
+      padding: 70px 20px 45px;
       text-align: center;
-    }
-
-    .hero span {
-      display: inline-block;
-      color: #7dd3fc;
-      border: 1px solid rgba(96,165,250,0.35);
-      background: rgba(37,99,235,0.08);
-      padding: 7px 13px;
-      border-radius: 999px;
-      margin-bottom: 18px;
-      font-size: 14px;
-      font-weight: 700;
+      background: linear-gradient(135deg, #0b1528, #14244c);
     }
 
     .hero h1 {
-      font-size: 46px;
-      line-height: 1.2;
-      margin-bottom: 18px;
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      max-width: 780px;
-      margin: auto;
-      color: #b8c7da;
+      max-width: 850px;
+      margin: 0 auto;
+      color: #c8d6ea;
       font-size: 18px;
     }
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px 24px 70px;
+    .container {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 60px 20px;
     }
 
-    .section-title {
+    .intro {
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 40px;
     }
 
-    .section-title h2 {
+    .intro h2 {
       font-size: 32px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .section-title p {
-      color: #aebed2;
+    .intro p {
+      color: #b9c8dc;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .services {
+    .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 30px;
     }
 
     .service-card {
-      background: linear-gradient(180deg, rgba(16,25,42,0.96), rgba(10,18,32,0.96));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+      background: linear-gradient(145deg, #111d31, #0d1728);
+      border: 1px solid #263b59;
+      border-radius: 18px;
+      padding: 34px;
+      min-height: 100%;
     }
 
-    .service-card h3 {
-      font-size: 26px;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: #b8c7da;
-      margin-bottom: 18px;
-    }
-
-    .service-card ul {
-      margin: 0 0 24px 20px;
-      color: #c7d4e5;
-    }
-
-    .service-card li {
-      margin-bottom: 9px;
-    }
-
-    .button {
-      display: inline-block;
-      background: linear-gradient(90deg, #2563eb, #7c3aed);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(59,130,246,0.25);
-    }
-
-    .disclosure {
-      margin-top: 35px;
-      background: rgba(37,99,235,0.08);
-      border: 1px solid rgba(96,165,250,0.22);
-      border-radius: 14px;
-      padding: 18px 20px;
-      color: #aebed2;
-      font-size: 14px;
-    }
-
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: #0b0f17;
-    }
-
-    .footer-wrap {
-      max-width: 1100px;
-      margin: auto;
-      padding: 28px 24px;
-      text-align: center;
-      color: #8496ad;
-      font-size: 14px;
-    }
-
-    .footer-links {
-      margin-bottom: 12px;
-    }
-
-    .footer-links a {
-      color: #aebed2;
-      margin: 0 8px;
-    }
-
-    .footer-links a:hover {
-      color: #60a5fa;
-    }
-
-    @media (max-width: 800px) {
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-    }
     .brand-title {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 14px;
+      margin-bottom: 22px;
     }
 
     .brand-title img {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 4px;
+      flex-shrink: 0;
     }
 
     .brand-title h3 {
       margin: 0;
+      font-size: 27px;
+      color: #ffffff;
+    }
+
+    .service-card p {
+      color: #c5d3e6;
+      margin-bottom: 20px;
+      font-size: 17px;
+    }
+
+    .service-card ul {
+      margin: 0 0 28px 22px;
+      color: #d5e0ef;
+    }
+
+    .service-card li {
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 9px;
+      font-weight: 700;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .disclosure {
+      margin-top: 45px;
+      padding: 18px 20px;
+      background: #101b2e;
+      border: 1px solid #243853;
+      border-radius: 12px;
+      color: #aebdd0;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 28px 20px;
+      text-align: center;
+      border-top: 1px solid #1f314a;
+      color: #93a7c1;
+    }
+
+    footer a {
+      color: #9ec5ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 800px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav-wrap">
-
-    <div class="logo">High<span>link</span> LLC</div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="business-registration.html">Business Registration</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-  </div>
-</header>
-
-
-<section class="hero">
-
-  <span>U.S. BUSINESS FORMATION</span>
-
-  <h1>Compare LLC Formation Services</h1>
-
-  <p>
-    Explore business formation services that can help entrepreneurs
-    register a U.S. LLC, prepare filing documents, access registered agent support,
-    and manage important business setup requirements.
-  </p>
-
-</section>
-
-
-<section class="section">
-
-  <div class="brand-title">
-    <img
-      src="https://www.google.com/s2/favicons?domain=incauthority.com&sz=128"
-      alt="Inc Authority logo">
-    <h3>Inc Authority</h3>
+  <div class="back-area">
+    <a href="javascript:history.back()" class="back-button">← Back</a>
   </div>
 
-  <div class="services">
+  <section class="hero">
+    <h1>LLC Formation Services</h1>
+    <p>
+      Compare useful services and resources for forming and managing
+      a Limited Liability Company in the United States.
+    </p>
+  </section>
 
-    <div class="service-card">
+  <main class="container">
 
-      <h3>Inc Authority</h3>
-
+    <div class="intro">
+      <h2>Compare LLC Formation Providers</h2>
       <p>
-        Inc Authority offers business formation services and resources
-        for entrepreneurs looking to start and manage a U.S. company.
+        Explore business formation services that may help entrepreneurs
+        with company registration, filing support, registered agent services,
+        and other business setup needs.
       </p>
-
-      <ul>
-        <li>LLC formation assistance</li>
-        <li>Business filing support</li>
-        <li>Registered agent options</li>
-        <li>Business setup resources</li>
-        <li>Ongoing business support</li>
-      </ul>
-
-      <a href="https://goto.incauthority.com/OeX9Mn"
-         class="button"
-         target="_blank"
-         rel="nofollow sponsored noopener">
-        Visit Inc Authority
-      </a>
-
     </div>
 
+    <div class="services-grid">
 
-    <div class="service-card">
+      <div class="service-card">
 
-      <div class="brand-title">
-        <img
-          src="https://www.google.com/s2/favicons?domain=llcattorney.com&sz=128"
-          alt="LLC Attorney logo">
-        <h3>LLC Attorney</h3>
+        <div class="brand-title">
+          <img
+            src="https://www.google.com/s2/favicons?domain=incauthority.com&sz=128"
+            alt="Inc Authority logo">
+          <h3>Inc Authority</h3>
+        </div>
+
+        <p>
+          Inc Authority offers business formation services and resources
+          for entrepreneurs looking to start and manage a U.S. company.
+        </p>
+
+        <ul>
+          <li>LLC formation assistance</li>
+          <li>Business filing support</li>
+          <li>Registered agent options</li>
+          <li>Business setup resources</li>
+          <li>Ongoing business support</li>
+        </ul>
+
+        <a href="https://goto.incauthority.com/OeX9Mn"
+           class="button"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Visit Inc Authority
+        </a>
+
       </div>
 
-      <p>
-        LLC Attorney provides LLC formation and business support services
-        for entrepreneurs who want help establishing a U.S. company.
-      </p>
+      <div class="service-card">
 
-      <ul>
-        <li>LLC formation services</li>
-        <li>Company filing assistance</li>
-        <li>Registered agent support</li>
-        <li>Business documentation</li>
-        <li>Company maintenance resources</li>
-      </ul>
+        <div class="brand-title">
+          <img
+            src="https://www.google.com/s2/favicons?domain=llcattorney.com&sz=128"
+            alt="LLC Attorney logo">
+          <h3>LLC Attorney</h3>
+        </div>
 
-      <a href="https://companysage.pxf.io/OYn25n"
-         class="button"
-         target="_blank"
-         rel="nofollow sponsored noopener">
-        Visit LLC Attorney
-      </a>
+        <p>
+          LLC Attorney provides LLC formation and business support services
+          for entrepreneurs who want help establishing a U.S. company.
+        </p>
+
+        <ul>
+          <li>LLC formation services</li>
+          <li>Company filing assistance</li>
+          <li>Registered agent support</li>
+          <li>Business documentation</li>
+          <li>Company maintenance resources</li>
+        </ul>
+
+        <a href="https://companysage.pxf.io/OYn25n"
+           class="button"
+           target="_blank"
+           rel="nofollow sponsored noopener">
+          Visit LLC Attorney
+        </a>
+
+      </div>
 
     </div>
 
-  </div>
-
-
-  <div class="disclosure">
-    Some links on this page are affiliate links. Highlink LLC may earn a commission
-    if you purchase through these links, at no additional cost to you.
-    Always review the provider's current pricing, terms, and services before purchasing.
-  </div>
-
-</section>
-
-
-<footer>
-
-  <div class="footer-wrap">
-
-    <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="business-registration.html">Business Registration</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+    <div class="disclosure">
+      Affiliate Disclosure: Some links on this page are affiliate links.
+      Highlink LLC may earn a commission if you purchase through these links,
+      at no additional cost to you.
     </div>
 
-    <p>© 2026 Highlink LLC. All rights reserved.</p>
+  </main>
 
-  </div>
-
-</footer>
+  <footer>
+    © Highlink LLC ·
+    <a href="affiliate-disclosure.html">Affiliate Disclosure</a> ·
+    <a href="privacy-policy.html">Privacy Policy</a>
+  </footer>
 
 </body>
 </html>
