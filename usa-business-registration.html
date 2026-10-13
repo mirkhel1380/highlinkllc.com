@@ -12,16 +12,6 @@
       margin: 0;
       padding: 0;
     }
-    .back-area {
-      background: #0b1220;
-     padding: 16px 24px;
-    }
-
-    .back-button {
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -61,6 +51,23 @@
     }
 
     nav a:hover {
+      color: #5da9ff;
+    }
+
+    .back-area {
+      background: #101a2d;
+      padding: 14px 7%;
+      border-bottom: 1px solid #263653;
+    }
+
+    .back-button {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .back-button:hover {
       color: #5da9ff;
     }
 
@@ -205,17 +212,30 @@
       font-size: 14px;
     }
 
+    footer a {
+      color: #9bbce8;
+      text-decoration: none;
+    }
+
     @media (max-width: 700px) {
       header {
         padding: 16px 5%;
+        flex-direction: column;
+        gap: 12px;
       }
 
       nav {
         gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       nav a {
         font-size: 13px;
+      }
+
+      .back-area {
+        padding: 14px 5%;
       }
 
       .hero {
@@ -258,9 +278,10 @@
     <a href="contact.html">Contact</a>
   </nav>
 </header>
-  <div class="back-area">
-    <a href="javascript:history.back()" class="back-button">← Back</a>
-  </div>
+
+<div class="back-area">
+  <a href="javascript:history.back()" class="back-button">← Back</a>
+</div>
 
 <section class="hero">
   <h1>USA Business Registration</h1>
@@ -283,53 +304,51 @@
   <section class="cards">
 
     <div class="card">
+      <h3>LLC Formation</h3>
 
-  <h3>LLC Formation</h3>
+      <p>
+        Learn about forming a Limited Liability Company (LLC) in the United States
+        and compare business formation services.
+      </p>
 
-  <p>
-    Learn about forming a Limited Liability Company (LLC) in the United States
-    and compare business formation services.
-  </p>
+      <ul>
+        <li>LLC formation assistance</li>
+        <li>State filing support</li>
+        <li>Business formation documents</li>
+        <li>Registered agent options</li>
+        <li>Business compliance resources</li>
+      </ul>
 
-  <ul>
-    <li>LLC formation assistance</li>
-    <li>State filing support</li>
-    <li>Business formation documents</li>
-    <li>Registered agent options</li>
-    <li>Business compliance resources</li>
-  </ul>
-
-  <a href="llc-formation.html" class="button">View LLC Formation Services</a>
-
-</div>
-
+      <a href="llc-formation.html" class="button">
+        View LLC Formation Services
+      </a>
+    </div>
 
     <div class="card">
+      <h3>Registered Agent Services</h3>
 
-  <h3>Registered Agent Services</h3>
+      <p>
+        Compare registered agent and business compliance services
+        that can help U.S. companies receive official notices,
+        maintain a business address, and manage important state requirements.
+      </p>
 
-  <p>
-    Compare registered agent and business compliance services
-    that can help U.S. companies receive official notices,
-    maintain a business address, and manage important state requirements.
-  </p>
+      <ul>
+        <li>Official document handling</li>
+        <li>Registered agent support</li>
+        <li>State compliance assistance</li>
+        <li>Business privacy support</li>
+        <li>Company maintenance resources</li>
+      </ul>
 
-  <ul>
-    <li>Official document handling</li>
-    <li>Registered agent support</li>
-    <li>State compliance assistance</li>
-    <li>Business privacy support</li>
-    <li>Company maintenance resources</li>
-  </ul>
-
-  <a href="registered-agent-services.html" class="button">
-    View Registered Agent Services
-  </a>
-      
-  </div>
+      <a href="registered-agent-services.html" class="button">
+        View Registered Agent Services
+      </a>
+    </div>
 
     <div class="card">
       <h3>Business Setup Resources</h3>
+
       <p>
         Explore useful services and resources that can help entrepreneurs establish and manage their businesses.
       </p>
@@ -342,11 +361,14 @@
         <li>Digital business resources</li>
       </ul>
 
-      <a href="registered-agent-services.html" class="button">View Registered Agent Services</a>
+      <a href="business-setup-resources.html" class="button">
+        View Resources
+      </a>
     </div>
 
     <div class="card">
       <h3>Business Information</h3>
+
       <p>
         Understand the basic considerations involved in starting a U.S. business before choosing a formation service.
       </p>
@@ -359,7 +381,9 @@
         <li>Online business operations</li>
       </ul>
 
-      <a href="how-to-register-llc-usa.html" class="button">Learn More</a>
+      <a href="how-to-register-llc-usa.html" class="button">
+        Learn More
+      </a>
     </div>
 
   </section>
@@ -379,13 +403,14 @@
       Explore business registration resources and discover services that can support your business journey.
     </p>
 
-    <a href="business-registration.html" class="button">Business Registration</a>
+    <a href="business-registration.html" class="button">
+      Business Registration
+    </a>
   </section>
 
 </main>
 
 <footer>
-
   <p>
     <a href="index.html">Home</a> |
     <a href="contact.html">Contact</a> |
@@ -397,7 +422,7 @@
   <p>
     © 2026 Highlink LLC. All rights reserved.
   </p>
-
 </footer>
+
 </body>
 </html>
