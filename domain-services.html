@@ -112,5 +112,51 @@ footer a{color:#60a5fa;text-decoration:none}
     <a href="terms.html">Terms &amp; Conditions</a>
   </p>
 </footer>
+
+<style>
+  .auto-back-area {
+    background: #101a2d;
+    padding: 14px 7%;
+  }
+
+  .auto-back-button {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .auto-back-button:hover {
+    color: #60a5fa;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    if (document.querySelector(".auto-back-area")) return;
+
+    const backArea = document.createElement("div");
+    backArea.className = "auto-back-area";
+
+    backArea.innerHTML =
+      '<a href="javascript:history.back()" class="auto-back-button">← Back</a>';
+
+    const header = document.querySelector("header");
+
+    if (header) {
+      header.insertAdjacentElement("afterend", backArea);
+    } else {
+      const hero = document.querySelector(".hero");
+
+      if (hero) {
+        hero.insertAdjacentElement("beforebegin", backArea);
+      } else {
+        document.body.insertAdjacentElement("afterbegin", backArea);
+      }
+    }
+
+  });
+</script>   
 </body>
 </html>
