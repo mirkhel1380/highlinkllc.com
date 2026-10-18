@@ -1,0 +1,45 @@
+name: Fix Highlink brand spacing
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  fix-brand:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix Highlink spacing everywhere
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          files = [Path('highlink-inner.css')] + list(Path('.').glob('*.html'))
+          changed = []
+          for p in files:
+              if not p.exists():
+                  continue
+              s = p.read_text(encoding='utf-8')
+              old = s
+              s = s.replace('.brand{display:flex;align-items:center;gap:10px;', '.brand{display:flex;align-items:center;gap:0;')
+              s = s.replace('.brand {\n      display:flex;\n      align-items:center;\n      gap:10px;', '.brand {\n      display:flex;\n      align-items:center;\n      gap:0;')
+              if '.brand img{' in s:
+                  s = s.replace('.brand img{', '.brand img{margin-right:10px;', 1)
+              if '.brand img {' in s:
+                  s = s.replace('.brand img {', '.brand img {\n      margin-right:10px;', 1)
+              if s != old:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(str(p))
+          print('Updated:', ', '.join(changed) if changed else 'none')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add highlink-inner.css *.html
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+          else
+            git commit -m "Fix Highlink brand spacing across site"
+            git push
+          fi
