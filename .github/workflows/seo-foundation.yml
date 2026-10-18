@@ -39,7 +39,10 @@ jobs:
               s=re.sub(r'\s*<p>\s*</p>\s*', '\n', s, flags=re.I)
               s=re.sub(r'\s*<p>\s*For more information, please review our\s*\.\s*</p>\s*', '\n', s, flags=re.I)
               s=re.sub(r'\s*<p>\s*For additional information, please read our\s*\.\s*</p>\s*', '\n', s, flags=re.I)
+              s=re.sub(r'\s*<section class="section">\s*<h2>Transparency</h2>\s*<p>\s*You can learn more by reading our\s*\.\s*</p>\s*</section>\s*', '\n', s, flags=re.I|re.S)
+              s=re.sub(r'\s*<p>\s*You can learn more by reading our\s*\.\s*</p>\s*', '\n', s, flags=re.I)
               s=s.replace('third-party services and  links.', 'third-party services and external links.')
+              s=s.replace('| </p>', '</p>')
 
               title_m=re.search(r'<title>(.*?)</title>', s, flags=re.I|re.S)
               desc_m=re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']\s*/?>', s, flags=re.I|re.S)
@@ -97,6 +100,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes needed"
           else
-            git commit -m "Add canonical and social SEO metadata"
+            git commit -m "Clean remaining site text and SEO metadata"
             git push
           fi
