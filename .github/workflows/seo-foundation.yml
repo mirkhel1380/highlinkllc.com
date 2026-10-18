@@ -1,0 +1,102 @@
+name: Add technical SEO foundation
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  seo:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add canonical, social metadata and cleanup
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, html, json
+
+          root='https://highlinkllc.com'
+          article_files={
+              'how-to-register-llc-usa.html',
+              'how-to-register-uk-ltd-non-resident.html',
+              'how-to-choose-web-hosting-small-business.html',
+              'how-to-choose-business-domain.html',
+              'best-seo-tools-small-business.html',
+              'how-ai-tools-help-small-business.html',
+              'why-online-businesses-need-vpn-privacy.html',
+              'online-security-tips-small-business.html',
+              'how-to-build-professional-online-presence.html'
+          }
+
+          changed=[]
+          for p in Path('.').glob('*.html'):
+              s=p.read_text(encoding='utf-8')
+              old=s
+
+              # Clean broken leftovers from previously removed text.
+              s=re.sub(r'\s*<h2>\s*</h2>\s*', '\n', s, flags=re.I)
+              s=re.sub(r'\s*<p>\s*</p>\s*', '\n', s, flags=re.I)
+              s=re.sub(r'\s*<p>\s*For more information, please review our\s*\.\s*</p>\s*', '\n', s, flags=re.I)
+              s=re.sub(r'\s*<p>\s*For additional information, please read our\s*\.\s*</p>\s*', '\n', s, flags=re.I)
+              s=s.replace('third-party services and  links.', 'third-party services and external links.')
+
+              title_m=re.search(r'<title>(.*?)</title>', s, flags=re.I|re.S)
+              desc_m=re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']\s*/?>', s, flags=re.I|re.S)
+              title=re.sub(r'\s+', ' ', title_m.group(1)).strip() if title_m else 'Highlink LLC'
+              desc=re.sub(r'\s+', ' ', desc_m.group(1)).strip() if desc_m else ''
+              url=root+'/' if p.name=='index.html' else f'{root}/{p.name}'
+              og_type='article' if p.name in article_files else 'website'
+
+              tags=[]
+              if not re.search(r'<link\s+rel=["\']canonical["\']', s, flags=re.I):
+                  tags.append(f'<link rel="canonical" href="{url}">')
+              if not re.search(r'<meta\s+name=["\']robots["\']', s, flags=re.I):
+                  tags.append('<meta name="robots" content="index, follow, max-image-preview:large">')
+              if not re.search(r'<meta\s+property=["\']og:title["\']', s, flags=re.I):
+                  tags += [
+                      f'<meta property="og:type" content="{og_type}">',
+                      f'<meta property="og:title" content="{html.escape(title, quote=True)}">',
+                      f'<meta property="og:url" content="{url}">',
+                      '<meta property="og:site_name" content="Highlink LLC">'
+                  ]
+                  if desc:
+                      tags.append(f'<meta property="og:description" content="{html.escape(desc, quote=True)}">')
+              if not re.search(r'<meta\s+name=["\']twitter:card["\']', s, flags=re.I):
+                  tags += [
+                      '<meta name="twitter:card" content="summary">',
+                      f'<meta name="twitter:title" content="{html.escape(title, quote=True)}">'
+                  ]
+                  if desc:
+                      tags.append(f'<meta name="twitter:description" content="{html.escape(desc, quote=True)}">')
+
+              if p.name=='index.html' and 'application/ld+json' not in s:
+                  schema={
+                    '@context':'https://schema.org',
+                    '@graph':[
+                      {'@type':'Organization','@id':root+'/#organization','name':'Highlink LLC','url':root+'/','logo':root+'/highlink-logo.png'},
+                      {'@type':'WebSite','@id':root+'/#website','url':root+'/','name':'Highlink LLC','publisher':{'@id':root+'/#organization'}}
+                    ]
+                  }
+                  tags.append('<script type="application/ld+json">'+json.dumps(schema,separators=(',',':'))+'</script>')
+
+              if tags and '</head>' in s:
+                  s=s.replace('</head>', '\n'+'\n'.join(tags)+'\n</head>', 1)
+
+              if s!=old:
+                  p.write_text(s,encoding='utf-8')
+                  changed.append(str(p))
+
+          print('Updated:', ', '.join(changed) if changed else 'none')
+          PY
+      - name: Commit SEO updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.html
+          if git diff --cached --quiet; then
+            echo "No changes needed"
+          else
+            git commit -m "Add canonical and social SEO metadata"
+            git push
+          fi
