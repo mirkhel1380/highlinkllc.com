@@ -1,0 +1,92 @@
+name: Final site cleanup
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Remove remaining related text and tracking remnants
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          text_exts = {'.html', '.css', '.xml', '.txt', '.md', '.js'}
+          tracking = {
+              'https://goto.incauthority.com/OeX9Mn': 'https://www.incauthority.com/',
+              'https://companysage.pxf.io/OYn25n': 'https://www.llcattorney.com/',
+              'https://airwallex.sjv.io/3kyDYn': 'https://www.airwallex.com/',
+              'https://namecheap.pxf.io/qWmb0g': 'https://www.namecheap.com/',
+              'https://domain.mno8.net/4ayQ23': 'https://www.domain.com/',
+              'https://www.awin1.com/cread.php?awinmid=27700&awinaffid=1840866': 'https://www.yourcompanyformations.co.uk/',
+              'https://rapid-formations.sjv.io/GKaY4n': 'https://www.rapidformations.co.uk/',
+              'https://www.dpbolvw.net/click-101587884-11145908': 'https://www.interserver.net/',
+              'https://flashcloud.pxf.io/NGROX1': 'https://flashcloud.com/',
+              'https://shopify.pxf.io/LKZRoO': 'https://www.shopify.com/',
+              'https://site123ltd.sjv.io/R01vYb': 'https://www.site123.com/',
+              'https://bluehost.sjv.io/xJy4mv': 'https://www.bluehost.com/',
+              'https://partners.inmotionhosting.com/ZVX9mk': 'https://www.inmotionhosting.com/',
+              'https://kamatera.sjv.io/zzyL06': 'https://www.kamatera.com/',
+              'https://openartai.pxf.io/xJr4my': 'https://openart.ai/',
+              'https://mainfuncpteltd.sjv.io/7XnjD5': 'https://www.genspark.ai/',
+              'https://manychat.pxf.io/rEG6b3': 'https://manychat.com/',
+              'https://vidlineinc.pxf.io/L0nbrM': 'https://sider.ai/',
+              'https://nordvpn.sjv.io/OeexAQ': 'https://nordvpn.com/',
+              'https://surfshark.sjv.io/4aJQRo': 'https://surfshark.com/',
+              'https://stasupteltd.sjv.io/YV1Q4j': 'https://www.webroot.com/',
+              'https://sentrypc.7eer.net/aOOnxq': 'https://www.sentrypc.com/',
+          }
+
+          for path in Path('.').rglob('*'):
+              if not path.is_file() or '.git' in path.parts or path.suffix.lower() not in text_exts:
+                  continue
+              text = path.read_text(encoding='utf-8')
+              old = text
+              for src, dst in tracking.items():
+                  text = text.replace(src, dst)
+              text = re.sub(r'\s*<a\b[^>]*href=["\'][^"\']*affiliate[^"\']*["\'][^>]*>.*?</a>\s*', ' ', text, flags=re.I|re.S)
+              text = re.sub(r'(?i)>[^<>]*(?:affiliate|commission)[^<>]*<', '><', text)
+              text = re.sub(r'(?i)affiliate', '', text)
+              text = text.replace('rel="nofollow sponsored noopener"', 'rel="noopener"')
+              text = text.replace("rel='nofollow sponsored noopener'", "rel='noopener'")
+              if text != old:
+                  path.write_text(text, encoding='utf-8')
+
+          for name in ['affiliate-disclosure.html']:
+              p = Path(name)
+              if p.exists():
+                  p.unlink()
+
+          workflow = Path('.github/workflows/final-clean.yml')
+          if workflow.exists():
+              workflow.unlink()
+          PY
+
+      - name: Verify no remnants remain
+        run: |
+          if grep -RinE --exclude-dir=.git 'affiliate|pxf\.io|sjv\.io|dpbolvw\.net|awin1\.com|7eer\.net|goto\.incauthority\.com' .; then
+            echo "Related remnants still exist"
+            exit 1
+          fi
+
+      - name: Commit final cleanup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Finalize direct-link site cleanup"
+          git push
