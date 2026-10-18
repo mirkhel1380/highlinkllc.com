@@ -1,1104 +1,913 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/highlink-favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/highlink-favicon.png">
+  <title>Highlink LLC | Business Registration, Hosting, AI & Security</title>
+  <meta name="description" content="Highlink LLC helps entrepreneurs start and grow their businesses with company registration, website and hosting solutions, AI & SEO tools, and online security resources.">
 
-<title>Highlink LLC | Business Registration & Digital Marketing</title>
-
-<meta name="description" content="Highlink LLC helps entrepreneurs start and grow their businesses with company registration, website and hosting solutions, AI & SEO tools, and online security resources.">
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f9fc;
-    color: #172033;
-    line-height: 1.6;
-}
-
-header {
-    background: #0b1220;
-    padding: 20px 7%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #ffffff;
-    font-size: 27px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.logo img {
-    width: 38px;
-    height: 38px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.logo-text {
-    color: #ffffff;
-}
-
-.logo-text span {
-    color: #3b82f6;
-}
-
-nav a {
-    color: #dbe4f0;
-    text-decoration: none;
-    margin-left: 28px;
-    font-size: 15px;
-}
-
-nav a:hover {
-    color: #60a5fa;
-}
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    color: white;
-    padding: 110px 7%;
-    background: linear-gradient(
-        135deg,
-        #07111f 0%,
-        #0b1b34 48%,
-        #221b49 100%
-    );
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 58%;
-    height: 100%;
-    background-image:
-        radial-gradient(circle, rgba(68, 216, 110, 0.45) 1.7px, transparent 1.8px);
-    background-size: 16px 16px;
-    opacity: 0.55;
-
-    -webkit-mask-image: linear-gradient(
-        to left,
-        black 0%,
-        black 45%,
-        transparent 100%
-    );
-
-    mask-image: linear-gradient(
-        to left,
-        black 0%,
-        black 45%,
-        transparent 100%
-    );
-
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 65%;
-    height: 140%;
-    background: radial-gradient(
-        circle,
-        rgba(56, 189, 104, 0.12) 0%,
-        rgba(70, 71, 180, 0.08) 40%,
-        transparent 70%
-    );
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.hero-content {
-    max-width: 1200px;
-    margin: auto;
-}
-
-.hero-label {
-    display: inline-block;
-    color: #60a5fa;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    max-width: 850px;
-    font-size: 56px;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-    margin-bottom: 25px;
-}
-
-.hero p {
-    max-width: 720px;
-    color: #cbd5e1;
-    font-size: 19px;
-    margin-bottom: 35px;
-}
-
-.button {
-    display: inline-block;
-    background: #3b82f6;
-    color: white;
-    text-decoration: none;
-    padding: 14px 27px;
-    border-radius: 7px;
-    font-weight: 600;
-}
-
-.button:hover {
-    background: #2563eb;
-}
-
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 85px 7%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h2 {
-    font-size: 36px;
-    margin-bottom: 12px;
-}
-
-.section-title p {
-    color: #64748b;
-    max-width: 650px;
-    margin: auto;
-}
-
-.services {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
-}
-
-.service {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 32px 25px;
-    transition: 0.25s;
-}
-
-.service:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(15,23,42,0.08);
-}
-
-.service-icon {
-    font-size: 30px;
-    margin-bottom: 18px;
-}
-
-.service h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-}
-
-.service p {
-    color: #64748b;
-    font-size: 15px;
-    margin-bottom: 20px;
-}
-
-.service a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.featured {
-    background: #ffffff;
-}
-
-.tools {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.tool {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 25px;
-}
-
-.tool h3 {
-    margin-bottom: 8px;
-}
-
-.tool p {
-    color: #64748b;
-    font-size: 15px;
-}
-
-.about {
-    background: #eef3f9;
-}
-
-.about-content {
-    max-width: 850px;
-    margin: auto;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 36px;
-    margin-bottom: 18px;
-}
-
-.about p {
-    color: #64748b;
-    font-size: 17px;
-}
-
-.why {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.why-box {
-    text-align: center;
-    padding: 20px;
-}
-
-.why-number {
-    font-size: 28px;
-    font-weight: 700;
-    color: #2563eb;
-    margin-bottom: 10px;
-}
-
-.why-box h3 {
-    margin-bottom: 8px;
-}
-
-.why-box p {
-    color: #64748b;
-    font-size: 15px;
-}
-
-.cta {
-    background: linear-gradient(135deg, #0b1220, #172554);
-    color: white;
-    text-align: center;
-    padding: 85px 7%;
-}
-
-.cta h2 {
-    font-size: 36px;
-    margin-bottom: 15px;
-}
-
-.cta p {
-    color: #cbd5e1;
-    margin-bottom: 30px;
-}
-
-footer {
-    background: #070d18;
-    color: #94a3b8;
-    padding: 35px 7%;
-    text-align: center;
-    font-size: 14px;
-}
-
-.footer-logo {
-    color: white;
-    font-size: 21px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.footer-logo span {
-    color: #3b82f6;
-}
-
-@media (max-width: 950px) {
-
-    .services {
-        grid-template-columns: repeat(2, 1fr);
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .tools {
-        grid-template-columns: 1fr;
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b1628;
+      --card: #101d31;
+      --card-2: #0d1829;
+      --line: rgba(255,255,255,.09);
+      --text: #f4f8ff;
+      --muted: #a9bad0;
+      --blue: #4f8cff;
+      --cyan: #35d0c7;
+      --purple: #8b5cf6;
     }
 
-    .hero h1 {
-        font-size: 46px;
+    html {
+      scroll-behavior: smooth;
     }
-}
 
-@media (max-width: 650px) {
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(59,130,246,.13), transparent 28%),
+        radial-gradient(circle at 90% 18%, rgba(139,92,246,.10), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #091525 48%, #07111f 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
 
     header {
-        padding: 18px 6%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7,17,31,.84);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 76px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.6px;
+      color: #fff;
+    }
+
+    .logo-text span {
+      color: #66a3ff;
     }
 
     nav {
-        display: none;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: #cfdaea;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    nav a:hover {
+      color: #7dd3fc;
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid rgba(96,165,250,.35);
+      border-radius: 10px;
+      background: rgba(37,99,235,.12);
     }
 
     .hero {
-        padding: 80px 7%;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(68,216,110,.34) 1.2px, transparent 1.2px);
+      background-size: 18px 18px;
+      opacity: .34;
+      mask-image: linear-gradient(to left, #000 0%, #000 34%, transparent 72%);
+      -webkit-mask-image: linear-gradient(to left, #000 0%, #000 34%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      right: -180px;
+      top: -220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(61,119,255,.18), rgba(139,92,246,.10) 42%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 110px 24px 105px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(96,165,250,.25);
+      border-radius: 999px;
+      background: rgba(37,99,235,.08);
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 15px rgba(52,211,153,.7);
     }
 
     .hero h1 {
-        font-size: 38px;
+      max-width: 860px;
+      font-size: clamp(43px, 6vw, 72px);
+      line-height: 1.04;
+      letter-spacing: -2.5px;
+      margin-bottom: 24px;
+      background: linear-gradient(90deg, #fff 0%, #b9d5ff 55%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-        font-size: 17px;
+      max-width: 760px;
+      color: #bdcce0;
+      font-size: 18px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 11px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: .22s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #2563eb, #7c3aed);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(37,99,235,.27);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.035);
+      color: #e7effb;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .section {
-        padding: 65px 7%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 88px 24px;
     }
 
-    .section-title h2,
-    .about h2,
-    .cta h2 {
-        font-size: 30px;
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .section-kicker {
+      color: #60a5fa;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-head h2,
+    .center-head h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      color: #fff;
+    }
+
+    .section-head p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .services {
-        grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
-    .why {
-        grid-template-columns: 1fr;
+    .service,
+    .resource-card,
+    .blog-card,
+    .why-card {
+      background: linear-gradient(180deg, rgba(16,29,49,.94), rgba(10,20,35,.96));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      transition: .24s ease;
     }
-}
-    body {
-  background:
-    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 28%),
-    radial-gradient(circle at top right, rgba(168, 85, 247, 0.16), transparent 30%),
-    radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.14), transparent 26%),
-    linear-gradient(180deg, #07111f 0%, #0a1628 45%, #07111f 100%);
-  color: #eaf2ff;
-}
 
-header {
-  background: rgba(8, 15, 28, 0.88);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+    .service {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+    }
 
-.logo,
-.footer-logo {
-  color: #ffffff;
-}
+    .service:hover,
+    .resource-card:hover,
+    .blog-card:hover,
+    .why-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96,165,250,.42);
+      box-shadow: 0 18px 42px rgba(0,0,0,.20);
+    }
 
-.logo span,
-.footer-logo span {
-  color: #60a5fa;
-}
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(37,99,235,.28), rgba(124,58,237,.27));
+      border: 1px solid rgba(96,165,250,.24);
+      margin-bottom: 22px;
+      font-size: 23px;
+    }
 
-nav a {
-  color: #d6e2f0;
-  transition: 0.3s ease;
-}
+    .service h3,
+    .resource-card h3,
+    .blog-card h3,
+    .why-card h3 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 11px;
+    }
 
-nav a:hover {
-  color: #7dd3fc;
-}
+    .service p,
+    .resource-card p,
+    .blog-card p,
+    .why-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-.hero {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(168, 85, 247, 0.12));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  border-radius: 24px;
-}
+    .service a,
+    .resource-card a,
+    .blog-card a {
+      margin-top: auto;
+      padding-top: 20px;
+      color: #7dd3fc;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+    }
 
-.hero h1 {
-  background: linear-gradient(90deg, #ffffff, #93c5fd, #c4b5fd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .feature-wrap {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,.018);
+    }
 
-.hero p {
-  color: #c9d8ea;
-}
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-.button,
-.hero a,
-.service a,
-.tool a,
-.cta a {
-  display: inline-block;
-  background: linear-gradient(90deg, #2563eb, #7c3aed);
-  color: white;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 700;
-  transition: 0.3s ease;
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
-}
+    .resource-card {
+      padding: 28px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.button:hover,
-.hero a:hover,
-.service a:hover,
-.tool a:hover,
-.cta a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 35px rgba(124, 58, 237, 0.35);
-}
+    .resource-tag {
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(59,130,246,.10);
+      color: #93c5fd;
+      border: 1px solid rgba(96,165,250,.18);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+    }
 
-.section-title h2 {
-  color: #ffffff;
-}
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-.section-title p {
-  color: #b8c7da;
-}
+    .blog-card {
+      padding: 28px;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.service,
-.tool,
-.why-box {
-  background: linear-gradient(180deg, rgba(16, 25, 42, 0.88), rgba(10, 18, 32, 0.92));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.20);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
+    .blog-meta {
+      color: #60a5fa;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
 
-.service:hover,
-.tool:hover,
-.why-box:hover {
-  transform: translateY(-6px);
-  border-color: rgba(96, 165, 250, 0.45);
-  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);
-}
+    .about-panel {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 46px;
+      padding: 48px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(15,31,53,.95), rgba(22,25,53,.95));
+    }
 
-.service h3,
-.tool h3,
-.why-box h3 {
-  color: #ffffff;
-}
+    .about-panel::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52,211,153,.14), transparent 70%);
+    }
 
-.service p,
-.tool p,
-.why-box p {
-  color: #bfd0e4;
-}
+    .about-panel h2 {
+      font-size: 38px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
 
-.service-icon {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
-  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.25);
-  font-size: 28px;
-  margin-bottom: 18px;
-}
+    .about-panel p {
+      color: #b6c6da;
+      max-width: 680px;
+    }
 
-.why-number {
-  color: #7dd3fc;
-  font-weight: 800;
-}
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-content: center;
+      position: relative;
+      z-index: 2;
+    }
 
-.featured {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(14, 165, 233, 0.05));
-  border-radius: 24px;
-}
+    .stat {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(255,255,255,.035);
+    }
 
-.cta {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(124, 58, 237, 0.18));
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
-}
+    .stat strong {
+      display: block;
+      font-size: 24px;
+      color: #7dd3fc;
+      margin-bottom: 4px;
+    }
 
-.cta h2 {
-  color: #ffffff;
-}
+    .stat span {
+      color: #9fb0c7;
+      font-size: 13px;
+    }
 
-.cta p {
-  color: #d1def0;
-}
+    .center-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 36px;
+    }
 
-footer {
-  background: rgba(7, 12, 22, 0.95);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  color: #aebfd4;
-}
+    .center-head p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
 
-footer a {
-  color: #cfe2ff;
-}
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-footer a:hover {
-  color: #7dd3fc;
-}
+    .why-card {
+      padding: 28px;
+    }
+
+    .why-number {
+      color: #7dd3fc;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .cta-wrap {
+      max-width: 1200px;
+      margin: 0 auto 90px;
+      padding: 0 24px;
+    }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 66px 28px;
+      border: 1px solid rgba(96,165,250,.22);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(37,99,235,.21), rgba(124,58,237,.16));
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(125,211,252,.21) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: .28;
+      pointer-events: none;
+    }
+
+    .cta > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta h2 {
+      font-size: clamp(31px, 4vw, 44px);
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 0 auto 26px;
+      color: #c3d1e4;
+    }
+
     .mega-footer {
-  background: #0b0f17;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 60px 24px 25px;
-  margin-top: 70px;
-}
+      border-top: 1px solid var(--line);
+      background: #060d18;
+      padding: 58px 24px 26px;
+    }
 
-.footer-grid {
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 26px;
-  align-items: start;
-  text-align: left;
-}
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr repeat(5, 1fr);
+      gap: 26px;
+      align-items: start;
+    }
 
-.footer-brand p {
-  color: #9fb0c6;
-  max-width: 300px;
-  margin: 18px 0 24px;
-}
+    .footer-brand h3,
+    .footer-col h4 {
+      color: #fff;
+      margin-bottom: 14px;
+    }
 
-.footer-contact-btn {
-  display: inline-block;
-  background: linear-gradient(90deg, #2563eb, #7c3aed);
-  color: #fff;
-  padding: 11px 18px;
-  border-radius: 9px;
-  font-weight: 700;
-}
+    .footer-brand p {
+      max-width: 300px;
+      color: #8fa2bb;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
 
-.footer-column h3 {
-  color: #fff;
-  font-size: 16px;
-  margin-bottom: 16px;
-}
+    .footer-col a {
+      display: block;
+      color: #9fb1c9;
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 9px;
+    }
 
-.footer-column a {
-  display: block;
-  color: #aebed2;
-  margin-bottom: 10px;
-  font-size: 14px;
-  transition: 0.2s ease;
-}
+    .footer-col a:hover {
+      color: #7dd3fc;
+    }
 
-.footer-column a:hover {
-  color: #60a5fa;
-  transform: translateX(3px);
-}
-    .footer-brand,
-.footer-column {
-  text-align: left;
-}
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 34px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #71849d;
+      font-size: 12px;
+    }
 
-.footer-column h3 {
-  text-align: left;
-  margin-left: 0;
-}
+    @media (max-width: 980px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-.footer-column a {
-  text-align: left;
-  margin-left: 0;
-  padding-left: 0;
-}
+      .resources,
+      .blog-grid,
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-.footer-bottom {
-  max-width: 1300px;
-  margin: 45px auto 0;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  text-align: center;
-  color: #7f8fa3;
-  font-size: 14px;
-}
+      .about-panel {
+        grid-template-columns: 1fr;
+      }
 
-@media (max-width: 1100px) {
-  .footer-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
-@media (max-width: 700px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+    @media (max-width: 720px) {
+      .navbar {
+        padding: 14px 20px;
+        min-height: auto;
+      }
 
-  .mega-footer {
-    padding-top: 45px;
-  }
-}
-    #about,
-.about,
-.about-section {
-  background: linear-gradient(135deg, rgba(11, 24, 43, 0.96), rgba(18, 29, 54, 0.96));
-  color: #eaf2ff;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+      nav {
+        display: none;
+      }
 
-#about h2,
-.about h2,
-.about-section h2 {
-  color: #ffffff;
-}
+      .hero-inner {
+        padding: 82px 20px 78px;
+      }
 
-#about p,
-.about p,
-.about-section p {
-  color: #b9c8dc;
-}
-</style>
+      .hero h1 {
+        letter-spacing: -1.4px;
+      }
+
+      .section {
+        padding: 68px 20px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .services,
+      .resources,
+      .blog-grid,
+      .why-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-panel {
+        padding: 32px 24px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .mega-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-
-    <div class="navbar">
-
-        <div class="logo">
-            <img src="highlink-logo.png" alt="Highlink LLC logo">
-            <span class="logo-text">High<span>link</span> LLC</span>
-        </div>
-
-        <nav>
-            <a href="#">Home</a>
-            <a href="#services">Services</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-    </div>
-
-</header>
-
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-label">
-            Business & Digital Solutions
-        </div>
-
-        <h1>
-            Build Your Business. Grow Your Online Presence.
-        </h1>
-
-        <p>
-            Highlink LLC provides business registration, digital marketing,
-            website, and online business resources to help entrepreneurs
-            build and grow their businesses.
-        </p>
-
-        <a href="#services" class="button">
-            View Services
-        </a>
-
-    </div>
-
-</section>
-
-
-<section class="section" id="services">
-
-    <div class="section-title">
-
-        <h2>Our Services</h2>
-
-        <p>
-            Practical solutions and resources for starting,
-            building, and growing your business online.
-        </p>
-
-    </div>
-
-
-    <div class="services">
-
-        <div class="service">
-
-            <div class="service-icon">🏢</div>
-
-            <h3>Business Registration</h3>
-
-            <p>
-                Resources and solutions for forming and registering
-                businesses in the USA and UK.
-            </p>
-
-            <a href="business-registration.html">Learn More →</a>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-icon">🌐</div>
-
-            <h3>Website & Hosting</h3>
-
-            <p>
-                Discover website builders, hosting, domains,
-                and tools for creating your online presence.
-            </p>
-
-           <a href="website-hosting.html">Learn More →</a>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-icon">📈</div>
-
-            <h3>AI & SEO</h3>
-
-            <p>
-                Discover AI tools, SEO solutions, automation platforms,
-                and resources to improve your online growth.
-            </p>
-
-            <a href="ai-seo.html">Learn More →</a>
-
-        </div>
-
-
-        <div class="service">
-
-            <div class="service-icon">🔒</div>
-
-            <h3>VPN & Security</h3>
-
-            <p>
-                Discover VPN services, privacy tools, device protection,
-                and resources for safer online activity.
-            </p>
-
-            <a href="vpn-security.html">Learn More →</a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="section featured">
-
-    <div class="section-title">
-
-        <h2>Featured Resources</h2>
-
-        <p>
-            Selected tools and services to help businesses launch, manage, and grow online.
-        </p>
-
-    </div>
-
-
-    <div class="tools">
-
-        <div class="tool">
-
-            <h3>Business Formation</h3>
-
-            <p>
-                Find business registration and formation resources
-                for entrepreneurs.
-            </p>
-
-        </div>
-
-
-        <div class="tool">
-
-            <h3>AI & SEO</h3>
-
-            <p>
-                Discover tools designed to improve visibility,
-                traffic, and online growth.
-            </p>
-
-        </div>
-
-
-        <div class="tool">
-
-            <h3>Website & Hosting</h3>
-
-            <p>
-                Explore useful platforms for websites, hosting,
-                domains, and online business.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-<section class="section">
-
-    <div class="section-title">
-        <h2>Latest from the Blog</h2>
-        <p>
-            Practical guides for starting, building, and growing your business online.
-        </p>
-    </div>
-
-    <div class="tools">
-
-        <div class="tool">
-            <h3>How to Register an LLC in the USA</h3>
-
-            <p>
-                A beginner-friendly guide covering LLC formation,
-                registered agents, EINs, business banking, and important next steps.
-            </p>
-
-            <a href="how-to-register-llc-usa.html">Read Guide →</a>
-        </div>
-
-        <div class="tool">
-            <h3>Business Registration Guides</h3>
-
-            <p>
-                Learn about LLC formation, UK LTD registration,
-                business setup, and important registration requirements.
-            </p>
-
-            <a href="blog.html">View Articles →</a>
-        </div>
-
-        <div class="tool">
-            <h3>Website, AI & SEO Guides</h3>
-
-            <p>
-                Discover useful information about hosting, domains,
-                SEO tools, AI platforms, and online business growth.
-            </p>
-
-            <a href="blog.html">View Articles →</a>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="section">
-
-    <div class="section-title">
-
-        <h2>Why Highlink?</h2>
-
-        <p>
-            We focus on practical resources that can help businesses
-            establish and grow their online presence.
-        </p>
-
-    </div>
-
-
-    <div class="why">
-
-        <div class="why-box">
-
-            <div class="why-number">01</div>
-
-            <h3>Business Focused</h3>
-
-            <p>
-                Resources selected with entrepreneurs and businesses in mind.
-            </p>
-
-        </div>
-
-
-        <div class="why-box">
-
-            <div class="why-number">02</div>
-
-            <h3>Useful Resources</h3>
-
-            <p>
-                Discover tools and services for real business needs.
-            </p>
-
-        </div>
-
-
-        <div class="why-box">
-
-            <div class="why-number">03</div>
-
-            <h3>Online Growth</h3>
-
-            <p>
-                Solutions for building a stronger digital presence.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="about" id="about">
-
-    <div class="section">
-
-        <div class="about-content">
-
-            <h2>About Highlink LLC</h2>
-
-            <p>
-                Highlink LLC focuses on business registration,
-                digital marketing, websites, and online business resources.
-                Our goal is to connect businesses and entrepreneurs with
-                useful services and tools for building and growing online.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="cta" id="contact">
-
-    <h2>Ready to Build Your Business Online?</h2>
-
-    <p>
-        Explore useful business services, digital tools, and online resources.
-    </p>
-
-    <a href="#services" class="button">
-        View Resources
+  <div class="navbar">
+    <a href="index.html" class="logo">
+      <img src="highlink-logo.png" alt="Highlink LLC logo">
+      <span class="logo-text">High<span>link</span> LLC</span>
     </a>
 
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#services">Services</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#services" class="nav-cta">Explore Services →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Business resources for entrepreneurs</div>
+    <h1>Start, build, and grow your business with confidence.</h1>
+    <p>
+      Highlink LLC helps entrepreneurs explore company registration, website and hosting solutions,
+      AI & SEO tools, and online security resources in one clear place.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#services" class="btn btn-primary">View Services →</a>
+      <a href="blog.html" class="btn btn-secondary">Explore the Blog</a>
+    </div>
+  </div>
 </section>
 
+<main>
 
-<footer class="mega-footer">
+  <section class="section" id="services">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">What we cover</div>
+        <h2>Business tools, organized clearly.</h2>
+      </div>
+      <p>Explore focused resources for launching a company, building your online presence, improving visibility, and protecting your digital activity.</p>
+    </div>
 
-  <div class="footer-grid">
+    <div class="services">
+      <article class="service">
+        <div class="service-icon">🏢</div>
+        <h3>Business Registration</h3>
+        <p>Explore USA LLC and UK LTD formation resources, registered agent services, and business setup information.</p>
+        <a href="business-registration.html">Explore Business Registration →</a>
+      </article>
 
-    <div class="footer-brand">
-      <div class="footer-logo">
-        High<span>link</span> LLC
+      <article class="service">
+        <div class="service-icon">🌐</div>
+        <h3>Website & Hosting</h3>
+        <p>Compare website builders, hosting services, domains, and cloud infrastructure for online businesses.</p>
+        <a href="website-hosting.html">Explore Website & Hosting →</a>
+      </article>
+
+      <article class="service">
+        <div class="service-icon">✦</div>
+        <h3>AI & SEO</h3>
+        <p>Discover AI tools, SEO solutions, automation platforms, and resources to improve your online growth.</p>
+        <a href="ai-seo.html">Explore AI & SEO →</a>
+      </article>
+
+      <article class="service">
+        <div class="service-icon">🛡</div>
+        <h3>VPN & Security</h3>
+        <p>Discover VPN services, privacy tools, device protection, and resources for safer online activity.</p>
+        <a href="vpn-security.html">Explore VPN & Security →</a>
+      </article>
+    </div>
+  </section>
+
+  <div class="feature-wrap">
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">Featured resources</div>
+          <h2>Useful starting points.</h2>
+        </div>
+        <p>Selected categories to help you move from business setup to a stronger online presence.</p>
       </div>
 
-      <p>
-        Business registration, website, AI, SEO, hosting,
-        and online security resources for modern businesses.
-      </p>
+      <div class="resources">
+        <article class="resource-card">
+          <span class="resource-tag">Business</span>
+          <h3>USA & UK Company Setup</h3>
+          <p>Learn the basics of company formation and compare the services available for new business owners.</p>
+          <a href="business-registration.html">View setup resources →</a>
+        </article>
 
-      <a href="contact.html" class="footer-contact-btn">Contact Us</a>
+        <article class="resource-card">
+          <span class="resource-tag">Growth</span>
+          <h3>AI & SEO Tools</h3>
+          <p>Explore tools for research, content, SEO, productivity, and customer communication.</p>
+          <a href="ai-seo.html">Explore AI & SEO →</a>
+        </article>
+
+        <article class="resource-card">
+          <span class="resource-tag">Online</span>
+          <h3>Website & Hosting</h3>
+          <p>Compare practical options for domains, website building, hosting, and cloud infrastructure.</p>
+          <a href="website-hosting.html">Explore web resources →</a>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="section-kicker">Latest from the blog</div>
+        <h2>Practical guides for online business.</h2>
+      </div>
+      <p>Clear articles covering business registration, website setup, AI, SEO, privacy, and security.</p>
     </div>
 
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-meta">Business Registration</div>
+        <h3>How to Register an LLC in the USA</h3>
+        <p>A practical overview of the main steps involved in forming a U.S. limited liability company.</p>
+        <a href="how-to-register-llc-usa.html">Read guide →</a>
+      </article>
 
-    <div class="footer-column">
-      <h3>Business Registration</h3>
+      <article class="blog-card">
+        <div class="blog-meta">Website & Hosting</div>
+        <h3>How to Choose Web Hosting for a Small Business</h3>
+        <p>Understand the factors that matter when comparing hosting options for a business website.</p>
+        <a href="how-to-choose-web-hosting-small-business.html">Read guide →</a>
+      </article>
 
+      <article class="blog-card">
+        <div class="blog-meta">AI & SEO</div>
+        <h3>How AI Tools Can Help Small Businesses</h3>
+        <p>Explore practical ways AI tools can support research, content, productivity, and everyday workflows.</p>
+        <a href="how-ai-tools-help-small-business.html">Read guide →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="about-panel">
+      <div>
+        <div class="section-kicker">About Highlink LLC</div>
+        <h2>A clearer path through business tools and services.</h2>
+        <p>
+          Highlink LLC organizes useful information across business registration, website infrastructure,
+          AI & SEO, and online security so entrepreneurs can compare options and make more informed decisions.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>4</strong><span>Main resource categories</span></div>
+        <div class="stat"><strong>40+</strong><span>Pages and guides</span></div>
+        <div class="stat"><strong>USA</strong><span>Business setup resources</span></div>
+        <div class="stat"><strong>UK</strong><span>Company formation resources</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="center-head">
+      <div class="section-kicker">Why Highlink</div>
+      <h2>Simple, focused, and built for comparison.</h2>
+      <p>We keep the structure clear so you can quickly move from learning to comparing relevant tools and services.</p>
+    </div>
+
+    <div class="why-grid">
+      <article class="why-card">
+        <div class="why-number">01</div>
+        <h3>Clear categories</h3>
+        <p>Business setup, hosting, AI & SEO, and security resources are separated into focused sections.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-number">02</div>
+        <h3>Practical guides</h3>
+        <p>Educational articles explain key topics before you compare third-party products or services.</p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-number">03</div>
+        <h3>Useful comparisons</h3>
+        <p>Relevant providers and tools are organized so you can review features, pricing, and terms for yourself.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <section class="cta">
+      <h2>Ready to explore your next business tool?</h2>
+      <p>Start with the category that matches what you are working on right now.</p>
+      <a href="#services" class="btn btn-primary">Explore Services →</a>
+    </section>
+  </div>
+
+</main>
+
+<footer class="mega-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Highlink LLC</h3>
+      <p>Business registration, website & hosting, AI & SEO, and online security resources for entrepreneurs.</p>
+      <p>contact@highlinkllc.com</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Business</h4>
       <a href="business-registration.html">Business Registration</a>
-      <a href="usa-business-registration.html">USA LLC Registration</a>
-      <a href="uk-business-registration.html">UK LTD Registration</a>
+      <a href="usa-business-registration.html">USA Business</a>
+      <a href="uk-business-registration.html">UK Business</a>
     </div>
 
-
-    <div class="footer-column">
-      <h3>Website & Hosting</h3>
-
+    <div class="footer-col">
+      <h4>Website</h4>
       <a href="website-hosting.html">Website & Hosting</a>
-      <a href="website-builders.html">Website Builders</a>
       <a href="web-hosting.html">Web Hosting</a>
       <a href="domain-services.html">Domain Services</a>
-      <a href="cloud-hosting.html">Cloud Hosting</a>
     </div>
 
-
-    <div class="footer-column">
-      <h3>AI & SEO</h3>
-
+    <div class="footer-col">
+      <h4>AI & SEO</h4>
       <a href="ai-seo.html">AI & SEO</a>
       <a href="ai-tools.html">AI Tools</a>
       <a href="seo-tools.html">SEO Tools</a>
-      <a href="chatbots-automation.html">Chatbots & Automation</a>
-      <a href="ai-productivity.html">AI Productivity</a>
     </div>
 
-
-    <div class="footer-column">
-      <h3>VPN & Security</h3>
-
+    <div class="footer-col">
+      <h4>Security</h4>
       <a href="vpn-security.html">VPN & Security</a>
       <a href="vpn-services.html">VPN Services</a>
-      <a href="protection-tools.html">Protection Tools</a>
-      <a href="device-tools.html">Device Tools</a>
       <a href="online-safety.html">Online Safety</a>
     </div>
 
-
-    <div class="footer-column">
-      <h3>Company</h3>
-
+    <div class="footer-col">
+      <h4>Company</h4>
       <a href="about.html">About</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy-policy.html">Privacy Policy</a>
       <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
-      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
     </div>
-
   </div>
-
 
   <div class="footer-bottom">
-    <p>© 2026 Highlink LLC. All rights reserved.</p>
+    <span>© 2026 Highlink LLC. All rights reserved.</span>
+    <span>Independent business resource and comparison website.</span>
   </div>
-
 </footer>
 
 </body>
