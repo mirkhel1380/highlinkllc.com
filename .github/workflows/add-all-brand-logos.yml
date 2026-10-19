@@ -1,0 +1,118 @@
+name: Add brand logos across site
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  logos:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add missing provider logos
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          brands = {
+            'https://goto.incauthority.com/OeX9Mn': ('Inc Authority','incauthority.com'),
+            'https://companysage.pxf.io/OYn25n': ('LLC Attorney','llcattorney.com'),
+            'https://airwallex.sjv.io/3kyDYn': ('Airwallex','airwallex.com'),
+            'https://namecheap.pxf.io/qWmb0g': ('Namecheap','namecheap.com'),
+            'https://domain.mno8.net/4ayQ23': ('Domain.com','domain.com'),
+            'https://www.awin1.com/cread.php?awinmid=27700&awinaffid=1840866': ('Your Company Formation','yourcompanyformations.co.uk'),
+            'https://rapid-formations.sjv.io/GKaY4n': ('Rapid Formations','rapidformations.co.uk'),
+            'https://www.dpbolvw.net/click-101587884-11145908': ('InterServer','interserver.net'),
+            'https://flashcloud.pxf.io/NGROX1': ('FlashCloud','flashcloud.com'),
+            'https://shopify.pxf.io/LKZRoO': ('Shopify','shopify.com'),
+            'https://site123ltd.sjv.io/R01vYb': ('SITE123','site123.com'),
+            'https://bluehost.sjv.io/xJy4mv': ('Bluehost','bluehost.com'),
+            'https://partners.inmotionhosting.com/ZVX9mk': ('InMotion Hosting','inmotionhosting.com'),
+            'https://kamatera.sjv.io/zzyL06': ('Kamatera','kamatera.com'),
+            'https://openartai.pxf.io/xJr4my': ('OpenArt','openart.ai'),
+            'https://mainfuncpteltd.sjv.io/7XnjD5': ('Genspark','genspark.ai'),
+            'https://manychat.pxf.io/rEG6b3': ('Manychat','manychat.com'),
+            'https://vidlineinc.pxf.io/L0nbrM': ('Sider','sider.ai'),
+            'https://nordvpn.sjv.io/OeexAQ': ('NordVPN','nordvpn.com'),
+            'https://surfshark.sjv.io/4aJQRo': ('Surfshark','surfshark.com'),
+            'https://stasupteltd.sjv.io/YV1Q4j': ('Webroot','webroot.com'),
+            'https://sentrypc.7eer.net/aOOnxq': ('SentryPC','sentrypc.com'),
+            'https://www.awin1.com/cread.php?awinmid=81169&awinaffid=2460965': ('Registered Agents Inc.','registeredagentsinc.com'),
+            'https://talkpal.ai/': ('Talkpal','talkpal.ai'),
+            'https://moz.com/': ('Moz','moz.com'),
+          }
+
+          article_re = re.compile(r'<article\s+class="[^"]*provider-card[^"]*"[^>]*>.*?</article>', re.I|re.S)
+          changed_files=[]
+          added=[]
+
+          def update_article(block, page):
+              if '<img' in block and ('provider-logo' in block or 'provider-logo-wrap' in block):
+                  return block
+              match=None
+              for url,(name,domain) in brands.items():
+                  if f'href="{url}"' in block or f"href='{url}'" in block:
+                      match=(url,name,domain)
+                      break
+              if not match:
+                  return block
+              _,name,domain=match
+              logo=(f'<div class="provider-logo-wrap"><img class="provider-logo" '
+                    f'src="https://www.google.com/s2/favicons?domain={domain}&sz=128" '
+                    f'alt="{name} logo"></div>')
+              new,n = re.subn(r'<div\s+class="provider-mark"[^>]*>.*?</div>', logo, block, count=1, flags=re.I|re.S)
+              if not n:
+                  new,n = re.subn(r'(<div\s+class="provider-top"[^>]*>)', r'\1'+logo, block, count=1, flags=re.I)
+              if n:
+                  added.append(f'{page}: {name}')
+                  return new
+              return block
+
+          for p in sorted(Path('.').glob('*.html')):
+              s=p.read_text(encoding='utf-8', errors='ignore')
+              new=article_re.sub(lambda m:update_article(m.group(0),p.name),s)
+              if new!=s:
+                  p.write_text(new,encoding='utf-8')
+                  changed_files.append(p.name)
+
+          cssp=Path('highlink-inner.css')
+          css=cssp.read_text(encoding='utf-8')
+          if '.provider-logo-wrap{' not in css:
+              logo_css='.provider-logo-wrap{width:52px;height:52px;display:grid;place-items:center;border-radius:13px;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.12);overflow:hidden;flex:0 0 auto}.provider-logo{width:38px;height:38px;object-fit:contain;display:block}'
+              marker='.provider-mark{'
+              if marker in css:
+                  css=css.replace(marker,logo_css+marker,1)
+              else:
+                  css += logo_css
+              cssp.write_text(css,encoding='utf-8')
+              changed_files.append('highlink-inner.css')
+
+          print('LOGOS_ADDED=',len(added))
+          for x in added: print('ADDED',x)
+          print('CHANGED_FILES=',','.join(changed_files))
+
+          # Verify that every known provider-card occurrence now has a logo.
+          missing=[]
+          for p in sorted(Path('.').glob('*.html')):
+              s=p.read_text(encoding='utf-8', errors='ignore')
+              for m in article_re.finditer(s):
+                  block=m.group(0)
+                  hit=[v[0] for u,v in brands.items() if f'href="{u}"' in block or f"href='{u}'" in block]
+                  if hit and 'provider-logo' not in block:
+                      missing.append(f'{p.name}: {hit[0]}')
+          print('MISSING_LOGO_COUNT=',len(missing))
+          for x in missing: print('MISSING',x)
+          PY
+      - name: Commit logo updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.html highlink-inner.css
+          if git diff --cached --quiet; then
+            echo "No logo changes needed"
+          else
+            git commit -m "Add missing brand logos across provider cards"
+            git push
+          fi
