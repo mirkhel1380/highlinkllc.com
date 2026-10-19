@@ -1,0 +1,55 @@
+name: Fix favicon on all pages
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  fix-favicon:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Normalize favicon tags across root HTML pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          changed=[]
+          favicon='''<link rel="icon" type="image/png" href="/highlink-favicon.png?v=3">\n<link rel="shortcut icon" type="image/png" href="/highlink-favicon.png?v=3">'''
+
+          for p in sorted(Path('.').glob('*.html')):
+              s=p.read_text(encoding='utf-8', errors='ignore')
+              old=s
+              # Remove existing favicon/icon declarations so every page uses the same root path.
+              s=re.sub(r'<link\b[^>]*\brel=["\'](?:icon|shortcut icon)["\'][^>]*>\s*', '', s, flags=re.I)
+              s=re.sub(r'<link\b[^>]*\bhref=["\'][^"\']*highlink-favicon\.png[^"\']*["\'][^>]*>\s*', '', s, flags=re.I)
+              if '</head>' in s:
+                  s=s.replace('</head>', favicon+'\n</head>', 1)
+              if s!=old:
+                  p.write_text(s, encoding='utf-8')
+                  changed.append(p.name)
+
+          missing=[]
+          for p in sorted(Path('.').glob('*.html')):
+              s=p.read_text(encoding='utf-8', errors='ignore')
+              if '/highlink-favicon.png?v=3' not in s:
+                  missing.append(p.name)
+
+          print('UPDATED_COUNT=', len(changed))
+          print('UPDATED=', ','.join(changed))
+          print('MISSING_COUNT=', len(missing))
+          print('MISSING=', ','.join(missing))
+          PY
+      - name: Commit favicon fixes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.html
+          if git diff --cached --quiet; then
+            echo "No favicon changes needed"
+          else
+            git commit -m "Fix favicon across all pages"
+            git push
+          fi
