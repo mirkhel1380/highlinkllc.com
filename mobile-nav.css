@@ -1,10 +1,10 @@
 .brand img{width:40px;height:40px;object-fit:contain;border-radius:10px;margin-right:10px;flex:0 0 auto;display:block}
 
-.services-dropdown{position:relative;display:flex;align-items:center;z-index:1350}
-.services-trigger{appearance:none;border:0;background:transparent;color:#ced9e8;font:inherit;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:10px 2px;white-space:nowrap;transition:color .2s ease}
-.services-trigger:hover,.services-trigger:focus-visible{color:#7dd3fc;outline:none}
-.services-arrow{font-size:15px;line-height:1;transition:transform .2s ease;transform:translateY(-1px)}
-.services-dropdown.services-open .services-arrow,.services-dropdown:hover .services-arrow{transform:translateY(-1px) rotate(180deg)}
+.services-dropdown,.nav-submenu{position:relative;display:flex;align-items:center;z-index:1350}
+.services-trigger,.nav-sub-trigger{appearance:none;border:0;background:transparent;color:#ced9e8;font:inherit;font-size:14px;font-weight:700;display:inline-flex;align-items:center;gap:6px;cursor:pointer;padding:10px 2px;white-space:nowrap;transition:color .2s ease}
+.services-trigger:hover,.services-trigger:focus-visible,.nav-sub-trigger:hover,.nav-sub-trigger:focus-visible{color:#7dd3fc;outline:none}
+.services-arrow,.nav-sub-arrow{font-size:15px;line-height:1;transition:transform .2s ease;transform:translateY(-1px)}
+.services-dropdown.services-open .services-arrow,.services-dropdown:hover .services-arrow,.nav-submenu.submenu-open .nav-sub-arrow,.nav-submenu:hover .nav-sub-arrow{transform:translateY(-1px) rotate(180deg)}
 .services-mega{position:absolute;top:100%;right:0;width:min(780px,88vw);padding-top:14px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
 .services-mega-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:16px;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:linear-gradient(180deg,rgba(10,24,41,.99),rgba(7,17,31,.99));box-shadow:0 24px 70px rgba(0,0,0,.38);backdrop-filter:blur(18px)}
 .services-group{min-width:0;padding:12px;border-radius:13px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.055)}
@@ -12,6 +12,12 @@
 .services-sub-link{display:block!important;padding:8px 2px!important;margin:0!important;color:#9fb1c8!important;font-size:12px!important;font-weight:600!important;line-height:1.35!important;border:0!important;border-radius:7px!important;background:transparent!important}
 .services-sub-link:hover,.services-sub-link:focus{color:#7dd3fc!important;background:rgba(79,140,255,.08)!important;padding-left:7px!important}
 .services-dropdown:hover .services-mega,.services-dropdown:focus-within .services-mega,.services-dropdown.services-open .services-mega{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
+
+.nav-sub-panel{position:absolute;top:100%;right:0;min-width:245px;padding:10px;margin-top:12px;border:1px solid rgba(255,255,255,.10);border-radius:15px;background:linear-gradient(180deg,rgba(10,24,41,.99),rgba(7,17,31,.99));box-shadow:0 22px 60px rgba(0,0,0,.34);backdrop-filter:blur(18px);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.nav-sub-panel a{display:block!important;width:100%!important;padding:10px 11px!important;margin:0!important;border-radius:9px!important;color:#aebed2!important;font-size:12px!important;font-weight:650!important;line-height:1.35!important;background:transparent!important;border:0!important;text-align:left!important}
+.nav-sub-panel a:hover,.nav-sub-panel a:focus{color:#fff!important;background:rgba(79,140,255,.10)!important}
+.nav-sub-panel .nav-sub-main{color:#fff!important;font-weight:800!important;border-bottom:1px solid rgba(255,255,255,.07)!important;border-radius:8px 8px 3px 3px!important;margin-bottom:4px!important}
+.nav-submenu:hover .nav-sub-panel,.nav-submenu:focus-within .nav-sub-panel,.nav-submenu.submenu-open .nav-sub-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
 
 .mobile-menu-toggle{display:none;border:0;background:transparent;color:#fff;cursor:pointer;padding:9px;border-radius:10px;align-items:center;justify-content:center;flex-direction:column;gap:5px;z-index:1402}
 .mobile-menu-toggle span{display:block;width:24px;height:2px;background:currentColor;border-radius:999px;transition:transform .22s ease,opacity .22s ease}
@@ -32,13 +38,15 @@
   header .mobile-nav-target>a:hover,header .mobile-nav-target>a:focus{background:rgba(79,140,255,.12)!important;border-color:rgba(79,140,255,.16)!important;color:#fff!important}
   header .mobile-nav-target .nav-btn{background:linear-gradient(90deg,#3478f6,#7357ee)!important;color:#fff!important;margin-top:8px!important;text-align:center!important}
 
-  header .mobile-nav-target .services-dropdown{display:block!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important}
-  header .mobile-nav-target .services-trigger{width:100%!important;min-height:48px!important;padding:14px 15px!important;justify-content:space-between!important;border:1px solid transparent!important;border-radius:10px!important;color:#dce7f5!important;font-size:15px!important;font-weight:700!important;text-align:left!important}
-  header .mobile-nav-target .services-trigger:hover,header .mobile-nav-target .services-trigger:focus-visible{background:rgba(79,140,255,.12)!important;border-color:rgba(79,140,255,.16)!important;color:#fff!important}
-  header .mobile-nav-target .services-mega{display:none!important;position:static!important;width:100%!important;padding:4px 0 8px!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important}
-  header .mobile-nav-target .services-dropdown.services-open .services-mega{display:block!important}
+  header .mobile-nav-target .services-dropdown,header .mobile-nav-target .nav-submenu{display:block!important;width:100%!important;height:auto!important;margin:0!important;padding:0!important}
+  header .mobile-nav-target .services-trigger,header .mobile-nav-target .nav-sub-trigger{width:100%!important;min-height:48px!important;padding:14px 15px!important;justify-content:space-between!important;border:1px solid transparent!important;border-radius:10px!important;color:#dce7f5!important;font-size:15px!important;font-weight:700!important;text-align:left!important}
+  header .mobile-nav-target .services-trigger:hover,header .mobile-nav-target .services-trigger:focus-visible,header .mobile-nav-target .nav-sub-trigger:hover,header .mobile-nav-target .nav-sub-trigger:focus-visible{background:rgba(79,140,255,.12)!important;border-color:rgba(79,140,255,.16)!important;color:#fff!important}
+  header .mobile-nav-target .services-mega,header .mobile-nav-target .nav-sub-panel{display:none!important;position:static!important;width:100%!important;min-width:0!important;padding:4px 0 8px!important;margin:0!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important;border:0!important;box-shadow:none!important;background:transparent!important;backdrop-filter:none!important}
+  header .mobile-nav-target .services-dropdown.services-open .services-mega,header .mobile-nav-target .nav-submenu.submenu-open .nav-sub-panel{display:block!important}
   header .mobile-nav-target .services-mega-inner{grid-template-columns:1fr!important;gap:8px!important;padding:8px!important;border-radius:12px!important;box-shadow:none!important;background:rgba(255,255,255,.025)!important;border-color:rgba(255,255,255,.07)!important}
   header .mobile-nav-target .services-group{padding:9px 10px!important;background:rgba(255,255,255,.02)!important}
   header .mobile-nav-target .services-group-title{padding:6px 4px 9px!important;font-size:13px!important}
   header .mobile-nav-target .services-sub-link{padding:8px 5px!important;font-size:12px!important;color:#aebed2!important}
+  header .mobile-nav-target .nav-sub-panel a{padding:10px 15px!important;font-size:13px!important;color:#aebed2!important;background:rgba(255,255,255,.025)!important;margin:3px 0!important}
+  header .mobile-nav-target .nav-sub-panel .nav-sub-main{color:#fff!important;background:rgba(79,140,255,.08)!important;border-bottom:0!important}
 }
