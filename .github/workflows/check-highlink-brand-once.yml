@@ -1,0 +1,46 @@
+name: Highlink brand and theme quality check
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate navigation JavaScript
+        run: node --check mobile-nav.js
+      - name: Validate all HTML pages and preserved tracking links
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          pgs=sorted(Path('.').glob('*.html'))
+          errors=[]
+          links=0
+          for p in pgs:
+              s=p.read_text(encoding='utf-8')
+              for flag in ('mobile-nav.css','mobile-nav.js','data-hl-theme','rel="canonical"'):
+                  if flag not in s:errors.append(f'{p.name}: missing {flag}')
+              if re.search(r'Highlink\s+LLC\b',s,flags=re.I):errors.append(f'{p.name}: old display name')
+              if s.count('localStorage.getItem("hl-theme")')!=1:errors.append(f'{p.name}: theme bootstrap count wrong')
+              for href in re.findall(r'href=["\x27]([^"\x27]+)',s):
+                  if href.startswith(('https:','http:','mailto:','tel:','javascript:','#','data:')):continue
+                  target=href.split('#')[0].split('?')[0].lstrip('/')
+                  if target and not Path(target).exists():errors.append(f'{p.name}: missing link {href}')
+                  links+=1
+          js=Path('mobile-nav.js').read_text(encoding='utf-8')
+          if 'Highlink LLC' in js:errors.append('Old brand in navigation')
+          if 'hl-theme-button' not in js or 'hl-subnav' not in js:errors.append('Theme or secondary header missing')
+          css=Path('mobile-nav.css').read_text(encoding='utf-8')
+          if 'data-hl-theme="dark"' not in css:errors.append('Missing dark theme CSS')
+          if css.count('{')!=css.count('}'):errors.append('Mismatched CSS braces')
+          seo=Path('seo-tools.html').read_text(encoding='utf-8')
+          for url in ('https://moz.pxf.io/rE3eWR','https://moz.pxf.io/c/5899362/3249091/26520'):
+              if url not in seo:errors.append('Missing Moz affiliate URL '+url)
+          if not Path('highlink-favicon.png').exists() or not Path('highlink-logo.png').exists():errors.append('Missing brand images')
+          print('PAGES_CHECKED',len(pgs),'INTERNAL_LINKS',links,'ERRORS',len(errors))
+          for err in errors:print('ERROR',err)
+          if errors:raise SystemExit(1)
+          PY
