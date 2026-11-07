@@ -633,3 +633,19 @@ body.hl-site{margin:0!important}
 @media(max-width:820px){
   .hl-site header.hl-header{padding:8px 0 10px!important}
 }
+
+
+/* Legal pages: ensure primary CTA label contrasts with its blue background.
+   Overrides the generic legal-page link color, including hover/visited/dark. */
+.hl-site.hl-legal main.container .hl-page-content .hl-page-actions a.hl-page-primary,
+.hl-site.hl-legal main.container .hl-page-content .hl-page-actions a.hl-page-primary:link,
+.hl-site.hl-legal main.container .hl-page-content .hl-page-actions a.hl-page-primary:visited,
+.hl-site.hl-legal main.container .hl-page-content .hl-page-actions a.hl-page-primary:hover,
+.hl-site.hl-legal main.container .hl-page-content .hl-page-actions a.hl-page-primary:focus-visible,
+html[data-hl-theme="dark"] .hl-site.hl-legal main.container .hl-page-content .hl-page-actions a.hl-page-primary{
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  opacity:1!important;
+  text-shadow:none!important;
+  text-decoration:none!important;
+}
