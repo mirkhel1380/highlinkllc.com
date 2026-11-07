@@ -1,281 +1,74 @@
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('header').forEach(function (header) {
-    var nav = header.querySelector('.nav-links, .links, nav');
-    if (!nav || nav.classList.contains('mobile-nav-target')) return;
 
-    var serviceMenu = document.createElement('div');
-    serviceMenu.className = 'services-dropdown';
-    serviceMenu.innerHTML =
-      '<button type="button" class="services-trigger" aria-expanded="false" aria-haspopup="true">' +
-        '<span>Services</span><span class="services-arrow" aria-hidden="true">⌄</span>' +
-      '</button>' +
-      '<div class="services-mega">' +
-        '<div class="services-mega-inner">' +
-          '<div class="services-group">' +
-            '<a class="services-group-title" href="/business-registration.html">Business Registration</a>' +
-            '<a class="services-sub-link" href="/usa-business-registration.html">USA Business Registration</a>' +
-            '<a class="services-sub-link" href="/llc-formation.html">LLC Formation</a>' +
-            '<a class="services-sub-link" href="/registered-agent-services.html">Registered Agent Services</a>' +
-            '<a class="services-sub-link" href="/uk-business-registration.html">UK Business Registration</a>' +
-            '<a class="services-sub-link" href="/uk-ltd-formation.html">UK LTD Formation</a>' +
-          '</div>' +
-          '<div class="services-group">' +
-            '<a class="services-group-title" href="/website-hosting.html">Website &amp; Hosting</a>' +
-            '<a class="services-sub-link" href="/website-builders.html">Website Builders</a>' +
-            '<a class="services-sub-link" href="/web-hosting.html">Web Hosting</a>' +
-            '<a class="services-sub-link" href="/domain-services.html">Domain Services</a>' +
-            '<a class="services-sub-link" href="/cloud-hosting.html">Cloud Hosting</a>' +
-          '</div>' +
-          '<div class="services-group">' +
-            '<a class="services-group-title" href="/ai-seo.html">AI &amp; SEO</a>' +
-            '<a class="services-sub-link" href="/ai-tools.html">AI Tools</a>' +
-            '<a class="services-sub-link" href="/seo-tools.html">SEO Tools</a>' +
-            '<a class="services-sub-link" href="/chatbots-automation.html">Chatbots &amp; Automation</a>' +
-            '<a class="services-sub-link" href="/ai-productivity.html">AI Productivity</a>' +
-          '</div>' +
-          '<div class="services-group">' +
-            '<a class="services-group-title" href="/vpn-security.html">VPN &amp; Security</a>' +
-            '<a class="services-sub-link" href="/vpn-services.html">VPN Services</a>' +
-            '<a class="services-sub-link" href="/protection-tools.html">Protection Tools</a>' +
-            '<a class="services-sub-link" href="/device-tools.html">Device Tools</a>' +
-            '<a class="services-sub-link" href="/online-safety.html">Online Safety</a>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
-
-    var existingServices = null;
-    Array.prototype.slice.call(nav.children).some(function (child) {
-      if (child.tagName === 'A' && child.textContent.trim().toLowerCase() === 'services') {
-        existingServices = child;
-        return true;
-      }
-      return false;
-    });
-
-    if (existingServices) {
-      nav.replaceChild(serviceMenu, existingServices);
-    } else {
-      var homeLink = null;
-      Array.prototype.slice.call(nav.children).some(function (child) {
-        if (child.tagName === 'A' && child.textContent.trim().toLowerCase() === 'home') {
-          homeLink = child;
-          return true;
-        }
-        return false;
-      });
-      if (homeLink && homeLink.nextSibling) nav.insertBefore(serviceMenu, homeLink.nextSibling);
-      else if (homeLink) nav.appendChild(serviceMenu);
-      else nav.insertBefore(serviceMenu, nav.firstChild);
+/* Highlink shared navigation and footer. All pages use the same responsive shell. */
+(function(){
+  function init(){
+    var path=location.pathname.split('/').pop()||'index.html';
+    var categories=['business-registration.html','website-hosting.html','ai-seo.html','vpn-security.html'];
+    var articles=['how-to-register-llc-usa.html','how-to-register-uk-ltd-non-resident.html','how-to-choose-web-hosting-small-business.html','how-to-choose-business-domain.html','best-seo-tools-small-business.html','how-ai-tools-help-small-business.html','why-online-businesses-need-vpn-privacy.html','online-security-tips-small-business.html','how-to-build-professional-online-presence.html'];
+    var kind=path==='index.html'?'hl-home':categories.indexOf(path)>=0?'hl-category':path==='blog.html'?'hl-blog':articles.indexOf(path)>=0?'hl-article':['about.html','contact.html'].indexOf(path)>=0?'hl-info':['terms.html','privacy-policy.html'].indexOf(path)>=0?'hl-legal':'hl-detail';
+    document.body.classList.add('hl-site',kind);
+    var groups=[
+      {label:'Services',id:'services',cols:[
+        ['Business Registration','business-registration.html',[['USA Business','usa-business-registration.html'],['LLC Formation','llc-formation.html'],['Registered Agents','registered-agent-services.html'],['UK Business','uk-business-registration.html'],['UK LTD Formation','uk-ltd-formation.html']]],
+        ['Website & Hosting','website-hosting.html',[['Website Builders','website-builders.html'],['Web Hosting','web-hosting.html'],['Domain Services','domain-services.html'],['Cloud Hosting','cloud-hosting.html']]],
+        ['AI & SEO','ai-seo.html',[['AI Tools','ai-tools.html'],['Moz Pro & Local','seo-tools.html'],['Chatbots','chatbots-automation.html'],['AI Productivity','ai-productivity.html']]],
+        ['VPN & Security','vpn-security.html',[['VPN Services','vpn-services.html'],['Protection Tools','protection-tools.html'],['Device Tools','device-tools.html'],['Online Safety','online-safety.html']]]
+      ]},
+      {label:'Guides',id:'guides',cols:[
+        ['Business Guides','blog.html',[['Start a U.S. LLC','how-to-register-llc-usa.html'],['Register a UK LTD','how-to-register-uk-ltd-non-resident.html'],['Professional Online Presence','how-to-build-professional-online-presence.html']]],
+        ['Digital Guides','blog.html',[['Choose Web Hosting','how-to-choose-web-hosting-small-business.html'],['SEO Tools Guide','best-seo-tools-small-business.html'],['Online Security Tips','online-security-tips-small-business.html']]]
+      ]},
+      {label:'Company',id:'company',cols:[
+        ['Highlink LLC','about.html',[['About Highlink','about.html'],['Contact Us','contact.html']]],
+        ['Information','privacy-policy.html',[['Privacy Policy','privacy-policy.html'],['Terms & Conditions','terms.html']]]
+      ]}
+    ];
+    function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+    function col(c){
+      return '<div class="hl-menu-col"><a href="/'+c[1]+'">'+e(c[0])+' ↗</a>'+c[2].map(function(l){return '<a href="/'+l[1]+'">'+e(l[0])+'</a>'}).join('')+'</div>';
     }
-
-    var submenuData = {
-      'business-registration.html': {
-        label: 'Business Registration',
-        items: [
-          ['Business Registration Home', '/business-registration.html'],
-          ['USA Business Registration', '/usa-business-registration.html'],
-          ['LLC Formation', '/llc-formation.html'],
-          ['Registered Agent Services', '/registered-agent-services.html'],
-          ['UK Business Registration', '/uk-business-registration.html'],
-          ['UK LTD Formation', '/uk-ltd-formation.html']
-        ]
-      },
-      'website-hosting.html': {
-        label: 'Website & Hosting',
-        items: [
-          ['Website & Hosting Home', '/website-hosting.html'],
-          ['Website Builders', '/website-builders.html'],
-          ['Web Hosting', '/web-hosting.html'],
-          ['Domain Services', '/domain-services.html'],
-          ['Cloud Hosting', '/cloud-hosting.html']
-        ]
-      },
-      'ai-seo.html': {
-        label: 'AI & SEO',
-        items: [
-          ['AI & SEO Home', '/ai-seo.html'],
-          ['AI Tools', '/ai-tools.html'],
-          ['SEO Tools', '/seo-tools.html'],
-          ['Chatbots & Automation', '/chatbots-automation.html'],
-          ['AI Productivity', '/ai-productivity.html']
-        ]
-      },
-      'vpn-security.html': {
-        label: 'VPN & Security',
-        items: [
-          ['VPN & Security Home', '/vpn-security.html'],
-          ['VPN Services', '/vpn-services.html'],
-          ['Protection Tools', '/protection-tools.html'],
-          ['Device Tools', '/device-tools.html'],
-          ['Online Safety', '/online-safety.html']
-        ]
-      },
-      'blog.html': {
-        label: 'Blog',
-        items: [
-          ['All Guides', '/blog.html'],
-          ['Register an LLC in the USA', '/how-to-register-llc-usa.html'],
-          ['Register a UK LTD', '/how-to-register-uk-ltd-non-resident.html'],
-          ['Choose Web Hosting', '/how-to-choose-web-hosting-small-business.html'],
-          ['Best SEO Tools', '/best-seo-tools-small-business.html'],
-          ['Online Security Tips', '/online-security-tips-small-business.html']
-        ]
-      },
-      'about.html': {
-        label: 'About',
-        items: [
-          ['About Highlink', '/about.html'],
-          ['Contact', '/contact.html'],
-          ['Privacy Policy', '/privacy-policy.html'],
-          ['Terms', '/terms.html']
-        ]
-      },
-      'contact.html': {
-        label: 'Contact',
-        items: [
-          ['Contact Highlink', '/contact.html'],
-          ['About Highlink', '/about.html'],
-          ['Privacy Policy', '/privacy-policy.html'],
-          ['Terms', '/terms.html']
-        ]
-      }
-    };
-
-    function fileKey(href) {
-      if (!href) return '';
-      var clean = href.split('#')[0].split('?')[0];
-      return clean.substring(clean.lastIndexOf('/') + 1);
+    function group(g){
+      return '<div class="hl-menu'+(g.id!=='services'?' hl-menu--small':'')+'"><button class="hl-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="hl-'+g.id+'">'+g.label+' <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><div class="hl-menu-panel" id="hl-'+g.id+'"><div class="hl-menu-inner"><div class="hl-menu-caption">'+(g.id==='services'?'Explore the categories':g.id==='guides'?'Practical reading':'Highlink information')+'</div><div class="hl-menu-grid">'+g.cols.map(col).join('')+'</div></div></div></div>';
     }
-
-    function buildSmallDropdown(anchor, data) {
-      var wrap = document.createElement('div');
-      wrap.className = 'nav-submenu';
-      var button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'nav-sub-trigger';
-      button.setAttribute('aria-expanded', 'false');
-      button.setAttribute('aria-haspopup', 'true');
-      button.innerHTML = '<span>' + data.label + '</span><span class="nav-sub-arrow" aria-hidden="true">⌄</span>';
-      var panel = document.createElement('div');
-      panel.className = 'nav-sub-panel';
-      data.items.forEach(function (item, index) {
-        var link = document.createElement('a');
-        link.href = item[1];
-        link.textContent = item[0];
-        if (index === 0) link.className = 'nav-sub-main';
-        panel.appendChild(link);
-      });
-      wrap.appendChild(button);
-      wrap.appendChild(panel);
-      nav.replaceChild(wrap, anchor);
-
-      button.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        closeOtherDropdowns(wrap);
-        var open = wrap.classList.toggle('submenu-open');
-        button.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      return wrap;
+    var head='<header class="hl-header"><div class="hl-nav-shell"><a class="hl-brand" href="/"><img src="/highlink-logo.png" width="40" height="40" alt="Highlink logo"><span class="hl-brand-name">High<em>link</em> LLC</span></a><nav class="hl-nav" aria-label="Main navigation" id="hl-navigation"><a href="/"' +(path==='index.html'?' aria-current="page"':'')+'>Home</a>'+groups.map(group).join('')+'<a class="hl-cta" href="/#services">Explore tools ↗</a></nav><button class="hl-hamburger" aria-label="Open menu" aria-controls="hl-navigation" aria-expanded="false" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><div class="hl-shade" aria-hidden="true"></div></div></header>';
+    var footLink=function(t,h){return '<a href="/'+h+'">'+e(t)+'</a>'};
+    var column=function(t,a){return '<div class="hl-foot-col"><h4>'+t+'</h4>'+a.map(function(x){return footLink(x[0],x[1])}).join('')+'</div>'};
+    var foot='<footer class="hl-footer"><div class="hl-container"><div class="hl-foot-grid"><div><div class="hl-foot-logo"><img src="/highlink-logo.png" width="39" height="39" alt="">Highlink LLC</div><p class="hl-foot-intro">Helpful resources for company setup, websites, AI, SEO, and online security — all in one place.</p><a class="hl-foot-mail" href="mailto:contact@highlinkllc.com">contact@highlinkllc.com</a></div>'+
+      column('Business',[['Business Registration','business-registration.html'],['USA Business','usa-business-registration.html'],['UK Business','uk-business-registration.html'],['LLC Formation','llc-formation.html']])+
+      column('Website',[['Website & Hosting','website-hosting.html'],['Website Builders','website-builders.html'],['Domain Services','domain-services.html'],['Cloud Hosting','cloud-hosting.html']])+
+      column('Tools',[['AI & SEO','ai-seo.html'],['Moz Pro & Local','seo-tools.html'],['VPN & Security','vpn-security.html'],['Business Guides','blog.html']])+
+      column('Company',[['About','about.html'],['Contact','contact.html'],['Privacy','privacy-policy.html'],['Terms','terms.html']])+
+      '</div><div class="hl-foot-bottom"><span>© 2026 Highlink LLC. All rights reserved.</span><span>Independent business resource and comparison website.</span></div></div></footer>';
+    var prior=document.querySelector('header');
+    if(prior)prior.outerHTML=head;
+    var priorFooter=document.querySelector('footer');
+    if(priorFooter)priorFooter.outerHTML=foot;
+    var h=document.querySelector('header.hl-header');
+    if(!h)return;
+    var nav=h.querySelector('.hl-nav'),toggle=h.querySelector('.hl-hamburger'),shade=h.querySelector('.hl-shade'),menus=[].slice.call(h.querySelectorAll('.hl-menu'));
+    function setMenu(m,open){m.classList.toggle('is-open',open);m.querySelector('button').setAttribute('aria-expanded',open?'true':'false')}
+    function closeMenus(except){menus.forEach(function(m){if(m!==except)setMenu(m,false)})}
+    function closeNav(){
+      nav.classList.remove('hl-nav-open');shade.classList.remove('is-visible');
+      document.body.classList.remove('hl-lock');toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open menu');closeMenus();
     }
-
-    function closeOtherDropdowns(except) {
-      nav.querySelectorAll('.nav-submenu.submenu-open').forEach(function (item) {
-        if (item !== except) {
-          item.classList.remove('submenu-open');
-          var trigger = item.querySelector('.nav-sub-trigger');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        }
-      });
-    }
-
-    Array.prototype.slice.call(nav.children).forEach(function (child) {
-      if (child.tagName !== 'A' || child.classList.contains('nav-btn')) return;
-      var key = fileKey(child.getAttribute('href'));
-      if (submenuData[key]) buildSmallDropdown(child, submenuData[key]);
+    menus.forEach(function(m){
+      var b=m.querySelector('.hl-trigger');
+      b.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();var open=!m.classList.contains('is-open');closeMenus(m);setMenu(m,open)});
+      m.addEventListener('mouseenter',function(){if(matchMedia('(min-width:821px) and (hover:hover)').matches){closeMenus(m);setMenu(m,true)}});
+      m.addEventListener('mouseleave',function(){if(innerWidth>820)setMenu(m,false)});
     });
-
-    var servicesTrigger = serviceMenu.querySelector('.services-trigger');
-    function closeServices() {
-      serviceMenu.classList.remove('services-open');
-      servicesTrigger.setAttribute('aria-expanded', 'false');
-    }
-
-    servicesTrigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      closeOtherDropdowns();
-      var open = serviceMenu.classList.toggle('services-open');
-      servicesTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.addEventListener('click',function(){
+      if(nav.classList.contains('hl-nav-open')){closeNav();return}
+      nav.classList.add('hl-nav-open');shade.classList.add('is-visible');document.body.classList.add('hl-lock');
+      toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-label','Close menu');
     });
-
-    serviceMenu.addEventListener('mouseenter', function () {
-      if (window.innerWidth > 820) servicesTrigger.setAttribute('aria-expanded', 'true');
-    });
-    serviceMenu.addEventListener('mouseleave', function () {
-      if (window.innerWidth > 820) servicesTrigger.setAttribute('aria-expanded', 'false');
-    });
-
-    var host = nav.parentElement;
-    if (!host) return;
-    host.style.position = host.style.position || 'relative';
-    nav.classList.add('mobile-nav-target');
-
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'mobile-menu-toggle';
-    btn.setAttribute('aria-label', 'Open navigation menu');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span></span><span></span><span></span>';
-    host.appendChild(btn);
-
-    function closeMenu() {
-      nav.classList.remove('mobile-menu-open');
-      btn.classList.remove('is-open');
-      document.body.classList.remove('mobile-menu-active');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.setAttribute('aria-label', 'Open navigation menu');
-      closeServices();
-      closeOtherDropdowns();
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      var open = nav.classList.toggle('mobile-menu-open');
-      btn.classList.toggle('is-open', open);
-      document.body.classList.toggle('mobile-menu-active', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-      if (!open) {
-        closeServices();
-        closeOtherDropdowns();
-      }
-    });
-
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!serviceMenu.contains(e.target)) closeServices();
-      if (!e.target.closest || !e.target.closest('.nav-submenu')) closeOtherDropdowns();
-      if (nav.classList.contains('mobile-menu-open') && !nav.contains(e.target) && !btn.contains(e.target)) closeMenu();
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeServices();
-        closeOtherDropdowns();
-        closeMenu();
-      }
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 820) closeMenu();
-      else {
-        closeServices();
-        closeOtherDropdowns();
-      }
-    });
-  });
-});
+    shade.addEventListener('click',closeNav);
+    nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeNav)});
+    document.addEventListener('click',function(ev){if(!h.contains(ev.target))closeMenus()});
+    document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){closeNav();toggle.focus()}});
+    window.addEventListener('resize',function(){if(innerWidth>820)closeNav()});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
