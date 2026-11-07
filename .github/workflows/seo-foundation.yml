@@ -46,7 +46,7 @@ jobs:
 
               title_m=re.search(r'<title>(.*?)</title>', s, flags=re.I|re.S)
               desc_m=re.search(r'<meta\s+name=["\']description["\']\s+content=["\'](.*?)["\']\s*/?>', s, flags=re.I|re.S)
-              title=re.sub(r'\s+', ' ', title_m.group(1)).strip() if title_m else 'Highlink LLC'
+              title=re.sub(r'\s+', ' ', title_m.group(1)).strip() if title_m else 'Highlink'
               desc=re.sub(r'\s+', ' ', desc_m.group(1)).strip() if desc_m else ''
               url=root+'/' if p.name=='index.html' else f'{root}/{p.name}'
               og_type='article' if p.name in article_files else 'website'
@@ -61,7 +61,7 @@ jobs:
                       f'<meta property="og:type" content="{og_type}">',
                       f'<meta property="og:title" content="{html.escape(title, quote=True)}">',
                       f'<meta property="og:url" content="{url}">',
-                      '<meta property="og:site_name" content="Highlink LLC">'
+                      '<meta property="og:site_name" content="Highlink">'
                   ]
                   if desc:
                       tags.append(f'<meta property="og:description" content="{html.escape(desc, quote=True)}">')
@@ -77,8 +77,8 @@ jobs:
                   schema={
                     '@context':'https://schema.org',
                     '@graph':[
-                      {'@type':'Organization','@id':root+'/#organization','name':'Highlink LLC','url':root+'/','logo':root+'/highlink-logo.png'},
-                      {'@type':'WebSite','@id':root+'/#website','url':root+'/','name':'Highlink LLC','publisher':{'@id':root+'/#organization'}}
+                      {'@type':'Organization','@id':root+'/#organization','name':'Highlink','url':root+'/','logo':root+'/highlink-logo.png'},
+                      {'@type':'WebSite','@id':root+'/#website','url':root+'/','name':'Highlink','publisher':{'@id':root+'/#organization'}}
                     ]
                   }
                   tags.append('<script type="application/ld+json">'+json.dumps(schema,separators=(',',':'))+'</script>')
