@@ -535,7 +535,7 @@ html[data-hl-theme="dark"] .hl-page-section code{background:#25415f;color:#bedaf
 /* Compact, floating capsule navigation — no secondary Quick Explore bar. */
 .hl-site header.hl-header{
   position:sticky!important;top:0!important;z-index:3000!important;
-  background:transparent!important;border:0!important;box-shadow:none!important;
+  background:linear-gradient(115deg,#081a34,#103362)!important;border:0!important;box-shadow:none!important;
   backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
   padding:0!important;
 }
@@ -582,7 +582,7 @@ html[data-hl-theme="dark"] .hl-page-section code{background:#25415f;color:#bedaf
 .hl-header .hl-menu-panel{padding-top:8px!important}
 .hl-header .hl-menu-inner{border-radius:20px!important}
 html[data-hl-theme="dark"] .hl-site header.hl-header{
-  background:transparent!important;border:0!important;box-shadow:none!important;
+  background:linear-gradient(115deg,#081a34,#103362)!important;border:0!important;box-shadow:none!important;
 }
 html[data-hl-theme="dark"] .hl-header .hl-nav-shell{
   background:#0f2036!important;
