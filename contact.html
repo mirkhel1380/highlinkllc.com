@@ -227,11 +227,79 @@
     <h2>How Can We Help?</h2>
 
     <p>
-      Contact Highlink for general questions, business inquiries,
-      partnership opportunities, or information about the resources
-      featured on our website.
+      Send a question or business inquiry directly through the form below, or contact us by email. We welcome feedback and questions about the resources featured on Highlink.
     </p>
   </div>
+
+
+  <section class="hl-contact-layout" aria-labelledby="hl-contact-heading">
+    <div class="hl-contact-form-panel">
+      <div class="hl-contact-eyebrow"><span class="hl-contact-dot"></span> SEND AN INQUIRY</div>
+      <h2 id="hl-contact-heading">Send us a message</h2>
+      <p class="hl-contact-lead">Have a question about one of our resources or a business partnership? Fill out the form and send your inquiry directly to our inbox.</p>
+      <form class="hl-contact-form" action="https://formsubmit.co/contact@highlinkllc.com" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="_subject" value="Highlink — New website contact inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://highlinkllc.com/message-sent.html">
+        <input type="hidden" name="_url" value="https://highlinkllc.com/contact.html">
+        <div class="hl-contact-honeypot" aria-hidden="true">
+          <label for="hl-fax">Leave this field empty</label>
+          <input id="hl-fax" type="text" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="hl-contact-fields-2">
+          <div class="hl-contact-field">
+            <label for="hl-full-name">Full name <span aria-hidden="true">*</span></label>
+            <input id="hl-full-name" type="text" name="name" required maxlength="100" autocomplete="name" placeholder="Your full name">
+          </div>
+          <div class="hl-contact-field">
+            <label for="hl-email">Email address <span aria-hidden="true">*</span></label>
+            <input id="hl-email" type="email" name="email" required maxlength="180" autocomplete="email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="hl-contact-field">
+          <label for="hl-topic">What is your inquiry about? <span aria-hidden="true">*</span></label>
+          <select id="hl-topic" name="topic" required>
+            <option value="" selected disabled>Select a topic</option>
+            <option value="Business registration">Business registration</option>
+            <option value="Website and hosting">Website &amp; hosting</option>
+            <option value="AI and SEO">AI &amp; SEO</option>
+            <option value="VPN and security">VPN &amp; security</option>
+            <option value="Partnership or collaboration">Partnership or collaboration</option>
+            <option value="Website feedback">Website feedback</option>
+            <option value="Other question">Other question</option>
+          </select>
+        </div>
+        <div class="hl-contact-field">
+          <label for="hl-subject">Subject <span aria-hidden="true">*</span></label>
+          <input id="hl-subject" type="text" name="subject" required minlength="3" maxlength="150" placeholder="Briefly describe your inquiry">
+        </div>
+        <div class="hl-contact-field">
+          <label for="hl-message">Your message <span aria-hidden="true">*</span></label>
+          <textarea id="hl-message" name="message" required minlength="10" maxlength="5000" rows="6" placeholder="Tell us how we can help. Please include relevant details, but no passwords or sensitive documents."></textarea>
+        </div>
+        <label class="hl-contact-consent">
+          <input type="checkbox" name="privacy_acknowledgement" value="Yes" required>
+          <span>I have read the <a href="privacy-policy.html">Privacy Policy</a> and understand that this form uses a third-party email-delivery service.</span>
+        </label>
+        <div class="hl-contact-bottom">
+          <button class="hl-contact-submit" type="submit">Send message <span aria-hidden="true">↗</span></button>
+          <span class="hl-contact-required">* Required fields</span>
+        </div>
+        <p class="hl-contact-privacy" id="hl-contact-form-note">Messages are processed by FormSubmit and delivered to <strong>contact@highlinkllc.com</strong>. Spam verification may appear before submission. Please do not send passwords, payment details, or sensitive documents.</p>
+      </form>
+    </div>
+    <aside class="hl-contact-side" aria-label="Other ways to connect">
+      <div class="hl-contact-side-icon" aria-hidden="true">✉</div>
+      <span class="hl-contact-side-kicker">DIRECT CONTACT</span>
+      <h3>We'd like to hear from you.</h3>
+      <p>Use the form for general questions, website feedback, or partnership inquiries. You can also email us directly.</p>
+      <a class="hl-contact-email" href="mailto:contact@highlinkllc.com">contact@highlinkllc.com</a>
+      <div class="hl-contact-side-divider"></div>
+      <h4>Helpful information</h4>
+      <p>For questions about an order, payment, or subscription with a third-party provider, please contact that provider's support team directly.</p>
+      <a class="hl-contact-guide" href="about.html">Learn about Highlink <span aria-hidden="true">→</span></a>
+    </aside>
+  </section>
 
   <div class="contact-grid">
 
