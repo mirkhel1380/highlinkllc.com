@@ -291,3 +291,6 @@ body.hl-lock{overflow:hidden!important}
 @media(max-width:1010px){.hl-tools-grid{grid-template-columns:repeat(2,1fr)}.hl-cover-grid{gap:35px}}
 @media(max-width:820px){.hl-cover-grid{grid-template-columns:1fr}.hl-cover{padding:65px 0}.hl-cover h1{font-size:clamp(42px,7vw,63px)}.hl-cover-panel{max-width:590px}.hl-area{padding:68px 0}.hl-guides-grid{grid-template-columns:1fr}.hl-callout{padding:34px;align-items:flex-start;flex-direction:column}}
 @media(max-width:600px){.hl-cover{padding:56px 0}.hl-cover h1{font-size:clamp(37px,10vw,51px)}.hl-cover-panel{padding:17px}.hl-cover-actions{flex-direction:column}.hl-cover-actions a{width:100%}.hl-progress-grid{grid-template-columns:repeat(2,1fr)}.hl-progress-item{font-size:11px;padding:12px 0}.hl-area{padding:57px 0}.hl-area-header h2{font-size:30px}.hl-areas-grid,.hl-tools-grid,.hl-step-grid{grid-template-columns:1fr}.hl-area-card{min-height:225px;padding:25px}.hl-callout{padding:29px}.hl-topic-more{flex-direction:column;align-items:flex-start;padding:26px}.hl-topic-more a{white-space:normal}}
+
+/* Keep the mobile drawer fixed to the viewport, not the blurred sticky header. */
+@media(max-width:820px){.hl-site header.hl-header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}.hl-header .hl-nav-shell{transform:none!important}}
