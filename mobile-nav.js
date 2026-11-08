@@ -106,7 +106,7 @@
           '<div class="hl-offer-fees"><span aria-hidden="true">✓</span><p><strong>Know the cost:</strong> Required state filing fees still apply. Optional additional services may cost extra.</p></div>'+
           '<a class="hl-offer-cta" href="https://goto.incauthority.com/OeX9Mn" target="_blank" rel="nofollow sponsored noopener noreferrer">Explore LLC Formation <span aria-hidden="true">→</span></a>'+
           '<button class="hl-offer-skip" type="button">Not now</button>'+
-          '<p class="hl-offer-disclosure">Sponsored affiliate link. Highlink may earn a commission if you purchase through this offer.</p>'+
+          '<p class="hl-offer-disclosure">Sponsored affiliate link. We may earn a commission if you purchase through this offer.</p>'+
         '</div>';
       var lastFocused=document.activeElement;
       var close=overlay.querySelector('.hl-offer-close');
