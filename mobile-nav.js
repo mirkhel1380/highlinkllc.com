@@ -86,6 +86,58 @@
     document.addEventListener('click',function(ev){if(!h.contains(ev.target))closeMenus()});
     document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){closeNav();toggle.focus()}});
     window.addEventListener('resize',function(){if(innerWidth>820)closeNav()});
+
+    /* One visit, one optional LLC offer. All dismissal paths are respected. */
+    function initOfferPopup(){
+      if(path==='message-sent.html'||document.getElementById('hl-offer-overlay'))return;
+      try{if(sessionStorage.getItem('hl-llc-offer-dismissed')==='1')return}catch(ignore){}
+      var overlay=document.createElement('div');
+      overlay.className='hl-offer-overlay';
+      overlay.id='hl-offer-overlay';
+      overlay.innerHTML=
+        '<div class="hl-offer-dialog" role="dialog" aria-modal="true" aria-labelledby="hl-offer-title" aria-describedby="hl-offer-desc">'+
+          '<button class="hl-offer-close" type="button" aria-label="Close offer" title="Close offer">'+
+            '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg>'+
+          '</button>'+
+          '<div class="hl-offer-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-7h6v7M9 10h.01M15 10h.01"/></svg></div>'+
+          '<div class="hl-offer-tag"><span class="hl-offer-dot" aria-hidden="true"></span> LLC FORMATION OFFER</div>'+
+          '<h2 id="hl-offer-title">Form your LLC with <span>$0 service fees.</span></h2>'+
+          '<p id="hl-offer-desc" class="hl-offer-description">Start your business with a basic LLC formation service at no service charge.</p>'+
+          '<div class="hl-offer-fees"><span aria-hidden="true">✓</span><p><strong>Know the cost:</strong> Required state filing fees still apply. Optional additional services may cost extra.</p></div>'+
+          '<a class="hl-offer-cta" href="https://goto.incauthority.com/OeX9Mn" target="_blank" rel="nofollow sponsored noopener noreferrer">Explore LLC Formation <span aria-hidden="true">→</span></a>'+
+          '<button class="hl-offer-skip" type="button">Not now</button>'+
+          '<p class="hl-offer-disclosure">Sponsored affiliate link. Highlink may earn a commission if you purchase through this offer.</p>'+
+        '</div>';
+      var lastFocused=document.activeElement;
+      var close=overlay.querySelector('.hl-offer-close');
+      var skip=overlay.querySelector('.hl-offer-skip');
+      var cta=overlay.querySelector('.hl-offer-cta');
+      function rememberDismissal(){try{sessionStorage.setItem('hl-llc-offer-dismissed','1')}catch(ignore){}}
+      function dismiss(){
+        rememberDismissal();
+        document.body.classList.remove('hl-offer-open');
+        document.removeEventListener('keydown',onKey);
+        overlay.remove();
+        if(lastFocused&&lastFocused.isConnected&&typeof lastFocused.focus==='function')lastFocused.focus();
+      }
+      function onKey(ev){
+        if(ev.key==='Escape'){ev.preventDefault();dismiss();return}
+        if(ev.key!=='Tab')return;
+        var focusables=[close,cta,skip],first=focusables[0],last=focusables[focusables.length-1];
+        if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus()}
+        else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus()}
+      }
+      close.addEventListener('click',dismiss);
+      skip.addEventListener('click',dismiss);
+      overlay.addEventListener('click',function(ev){if(ev.target===overlay)dismiss()});
+      cta.addEventListener('click',rememberDismissal);
+      document.body.appendChild(overlay);
+      document.body.classList.add('hl-offer-open');
+      document.addEventListener('keydown',onKey);
+      close.focus({preventScroll:true});
+    }
+    // Give the page a brief moment to render before displaying the offer.
+    window.setTimeout(initOfferPopup,650);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
