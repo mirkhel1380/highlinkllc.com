@@ -1081,3 +1081,22 @@ html[data-hl-theme="dark"] .hl-site .hl-home-resource-search-field input{
  .hl-site .hl-blog-resource-shortcut{padding:19px}
  .hl-site .hl-blog-resource-shortcut a{width:100%;justify-content:center}
 }
+
+
+/* Visible affiliate relationship beside provider grids. */
+.hl-detail .hl-affiliate-near-grid{
+ margin:18px 0 18px!important;
+ padding:13px 16px!important;
+ border:1px solid #dce8f5!important;border-radius:11px!important;
+ background:#f1f6fd!important;
+ font-size:12px!important;line-height:1.75!important;
+ color:#526b87!important;
+}
+.hl-detail .hl-affiliate-near-grid a{
+ color:#245fca!important;text-decoration:underline!important;text-underline-offset:3px;
+ font-weight:750!important;
+}
+html[data-hl-theme="dark"] .hl-detail .hl-affiliate-near-grid{
+ background:#1c3453!important;border-color:#314f73!important;color:#c0d2e7!important;
+}
+html[data-hl-theme="dark"] .hl-detail .hl-affiliate-near-grid a{color:#a2ccff!important}
