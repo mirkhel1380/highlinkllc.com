@@ -37,8 +37,8 @@
     var foot='<footer class="hl-footer"><div class="hl-container"><div class="hl-foot-grid"><div><div class="hl-foot-logo"><img src="/highlink-logo.png" width="39" height="39" alt="">Highlink</div><p class="hl-foot-intro">Helpful resources for company setup, websites, AI, SEO, and online security — all in one place.</p><a class="hl-foot-mail" href="mailto:contact@highlinkllc.com">contact@highlinkllc.com</a></div>'+
       column('Business',[['Business Registration','business-registration.html'],['USA Business','usa-business-registration.html'],['UK Business','uk-business-registration.html'],['LLC Formation','llc-formation.html']])+
       column('Website',[['Website & Hosting','website-hosting.html'],['Website Builders','website-builders.html'],['Domain Services','domain-services.html'],['Cloud Hosting','cloud-hosting.html']])+
-      column('Tools',[['AI & SEO','ai-seo.html'],['Moz Pro & Local','seo-tools.html'],['VPN & Security','vpn-security.html'],['Business Guides','blog.html']])+
-      column('Company',[['About','about.html'],['Contact','contact.html'],['Privacy','privacy-policy.html'],['Terms','terms.html']])+
+      column('Tools',[['Resource Finder','resource-finder.html'],['AI & SEO','ai-seo.html'],['Moz Pro & Local','seo-tools.html'],['VPN & Security','vpn-security.html'],['Business Guides','blog.html']])+
+      column('Company',[['About','about.html'],['Contact','contact.html'],['Affiliate Disclosure','affiliate-disclosure.html'],['Privacy','privacy-policy.html'],['Terms','terms.html']])+
       '</div><div class="hl-foot-bottom"><span>© 2026 Highlink. All rights reserved.</span><span>Independent business resource and comparison website.</span></div></div></footer>';
     var prior=document.querySelector('header');
     if(prior)prior.outerHTML=head;
