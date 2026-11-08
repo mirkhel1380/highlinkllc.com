@@ -760,3 +760,94 @@ html[data-hl-theme="dark"] .hl-success-secondary{background:#25466a;color:#d4e8f
  .hl-success-actions{align-items:stretch;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){.hl-contact-submit{transition:none!important}}
+
+
+/* Featured Inc Authority homepage announcement: outside the pill header, above the hero */
+.hl-home .hl-announcement{
+  position:relative;
+  display:block;
+  width:100%;
+  background:linear-gradient(110deg,#0a284d 0%,#144578 65%,#0b365b 100%);
+  border-bottom:1px solid rgba(148,197,255,.18);
+  color:#fff;
+}
+.hl-announcement-inner{
+  width:min(100% - 48px,1190px);
+  min-height:94px;
+  margin:0 auto;
+  padding:17px 0;
+  display:flex;
+  align-items:center;
+  gap:19px;
+}
+.hl-announcement-price{
+  display:grid;
+  place-items:center;
+  flex:0 0 62px;
+  width:62px;
+  height:62px;
+  border-radius:17px;
+  background:rgba(130,238,226,.12);
+  border:1px solid rgba(130,238,226,.38);
+  color:#85f4e6;
+  font-size:27px;
+  letter-spacing:-.06em;
+  line-height:1;
+  font-weight:900;
+}
+.hl-announcement-copy{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.hl-announcement-eyebrow{
+  font-size:10px;
+  letter-spacing:.14em;
+  font-weight:900;
+  color:#8ceadd;
+}
+.hl-announcement-copy strong{
+  color:#fff;
+  font-size:17px;
+  font-weight:850;
+  line-height:1.35;
+  letter-spacing:-.02em;
+}
+.hl-announcement-detail{font-size:11.5px;line-height:1.55;color:#c5d9ec}
+.hl-announcement-disclosure{display:inline-block;padding-left:8px;color:#a0c4ee;font-size:10px}
+.hl-announcement-cta{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex:0 0 auto;
+  padding:12px 18px;
+  min-height:46px;
+  border-radius:999px;
+  background:#fff;
+  color:#13457d!important;
+  -webkit-text-fill-color:#13457d!important;
+  text-decoration:none!important;
+  font-size:12px;
+  font-weight:900;
+  line-height:1.3;
+  box-shadow:0 10px 25px rgba(0,0,0,.13);
+  transition:transform .18s,background .18s;
+}
+.hl-announcement-cta:hover{background:#e8f6ff;transform:translateY(-2px)}
+.hl-announcement-cta span{font-size:17px}
+.hl-announcement-cta:focus-visible{outline:3px solid #97f8e6!important;outline-offset:4px}
+html[data-hl-theme="dark"] .hl-home .hl-announcement{
+  background:linear-gradient(110deg,#081c36,#0d365e 65%,#0a2e53);
+}
+@media(max-width:850px){
+  .hl-announcement-inner{gap:12px;flex-wrap:wrap;padding:17px 0}
+  .hl-announcement-copy{flex:1 1 calc(100% - 80px)}
+  .hl-announcement-cta{margin-left:74px}
+}
+@media(max-width:550px){
+  .hl-announcement-inner{width:calc(100% - 34px);gap:12px;padding:16px 0}
+  .hl-announcement-price{width:50px;height:50px;flex-basis:50px;border-radius:14px;font-size:23px}
+  .hl-announcement-copy{flex-basis:calc(100% - 65px);gap:5px}
+  .hl-announcement-copy strong{font-size:15px}
+  .hl-announcement-eyebrow{font-size:9px}
+  .hl-announcement-detail{font-size:11px}
+  .hl-announcement-cta{margin:4px 0 0 0;width:100%;min-height:43px}
+}
+@media(prefers-reduced-motion:reduce){.hl-announcement-cta{transition:none!important}}
