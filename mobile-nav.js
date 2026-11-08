@@ -44,6 +44,17 @@
     if(prior)prior.outerHTML=head;
     var priorFooter=document.querySelector('footer');
     if(priorFooter)priorFooter.outerHTML=foot;
+    // Keep an affiliate disclosure beside sponsored provider comparisons, not only in the footer.
+    var paidProviderLink=document.querySelector('.provider-card a[rel~="sponsored"]');
+    if(paidProviderLink){
+      var providerGrid=paidProviderLink.closest('.grid-2,.grid-3,.llc-provider-grid');
+      if(providerGrid && !providerGrid.parentNode.querySelector('.hl-affiliate-near-grid')){
+        var notice=document.createElement('p');
+        notice.className='hl-affiliate-near-grid';
+        notice.innerHTML='Some provider links below are paid affiliate links. Highlink may earn a commission from qualifying purchases. <a href="/affiliate-disclosure.html">How affiliate links work</a>.';
+        providerGrid.parentNode.insertBefore(notice,providerGrid);
+      }
+    }
     var h=document.querySelector('header.hl-header');
     if(!h)return;
     var themeToggle=h.querySelector('.hl-theme-button');
