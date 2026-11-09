@@ -100,6 +100,8 @@
 
     /* One visit, one optional LLC offer. All dismissal paths are respected. */
     function initOfferPopup(){
+      // Avoid an intrusive interstitial covering the primary content on mobile.
+      if(window.matchMedia && window.matchMedia('(max-width: 820px)').matches)return;
       if(path==='message-sent.html'||document.getElementById('hl-offer-overlay'))return;
       try{if(sessionStorage.getItem('hl-llc-offer-dismissed')==='1')return}catch(ignore){}
       var overlay=document.createElement('div');
